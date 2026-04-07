@@ -67,6 +67,21 @@
             background-color: var(--color-beige);
             box-shadow: var(--shadow-md);
         }
+        /* Full bleed image */
+        .full-bleed {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            overflow: hidden;
+        }
+        .full-bleed img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
         header {
             display: flex;
             justify-content: space-between;
@@ -133,18 +148,6 @@
             font-weight: 500;
             font-size: 1.1rem;
             letter-spacing: 1px;
-        }
-        /* Hero full-width image */
-        .hero-full-image {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        .hero-full-image img {
-            width: 100%;
-            height: auto;
-            display: block;
         }
         .hero-text {
             margin-top: 2rem;
@@ -487,11 +490,11 @@
     <main id="main-content">
         <!-- Sección INICIO -->
         <div id="inicio" class="page-section active">
+            <!-- Imagen a ancho completo, sin bordes, sin blur -->
+            <div class="full-bleed">
+                <img src="i/woman_feeding_sheep.jpg" alt="Pastora alimentando ovejas en Asturias" loading="lazy">
+            </div>
             <section>
-                <!-- Imagen a ancho completo, sin blur, ocupando toda la anchura -->
-                <div class="hero-full-image">
-                    <img src="i/woman_feeding_sheep.jpg" alt="Pastora alimentando ovejas en Asturias" loading="lazy">
-                </div>
                 <div class="container-inner">
                     <div class="hero-text">
                         <h1>Re_signifq<br>la lana de residuo a recurso</h1>
