@@ -243,7 +243,7 @@
             margin-bottom: 0.75rem;
             color: var(--color-marrom);
         }
-        /* Nuevos estilos para logos tipo avatar */
+        /* Estilos para logos tipo avatar */
         .avatar-logo {
             width: 80px;
             height: 80px;
@@ -259,22 +259,23 @@
         .product-description {
             overflow: hidden;
         }
+        /* Banner pulsante sin bordes ni fondo */
         .blinking-banner {
             text-align: center;
             margin-top: 3rem;
-            padding: 1.5rem;
-            background: var(--color-mostarda);
-            color: var(--color-verde);
-            border-radius: var(--radius-lg);
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
+        }
+        .blinking-banner img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
             animation: pulse 1.5s infinite ease-in-out;
             cursor: pointer;
+            border: none;
+            outline: none;
         }
         @keyframes pulse {
             0% { opacity: 0.6; transform: scale(0.98); }
-            50% { opacity: 1; transform: scale(1.02); background-color: var(--color-rosa); color: var(--color-marrom); }
+            50% { opacity: 1; transform: scale(1.02); }
             100% { opacity: 0.6; transform: scale(0.98); }
         }
         .faq-item {
@@ -490,8 +491,7 @@
                 margin-right: 0.75rem;
             }
             .blinking-banner {
-                font-size: 1.5rem;
-                padding: 1rem;
+                margin-top: 2rem;
             }
         }
     </style>
@@ -568,13 +568,12 @@
             </section>
         </div>
 
-        <!-- Sección NOSOTROS (sin cambios) -->
+        <!-- Sección NOSOTROS -->
         <div id="nosotros" class="page-section">
             <section>
                 <div class="container-inner">
                     <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">NOSOTROS</h2>
                     <div class="nosotros-grid">
-                        <!-- Bloque 1: El origen -->
                         <div class="nosotros-block">
                             <div class="image">
                                 <img src="i/fuentes_cabadas_4a4a26.jpg" alt="Paisaje de Fuentes Cabadas" loading="lazy">
@@ -588,8 +587,6 @@
                                 <p><strong>Porque cuando la lana se re-significa, todo el territorio se transforma.</strong></p>
                             </div>
                         </div>
-
-                        <!-- Bloque 2: Materia prima -->
                         <div class="nosotros-block reverse">
                             <div class="image">
                                 <img src="i/Lana_material.jpg" alt="Textura de lana natural" loading="lazy">
@@ -600,8 +597,6 @@
                                 <p>La lana de oveja es una materia prima con múltiples propiedades: aislamiento térmico y acústico, termorregulación natural, durabilidad, seguridad al ser ininflamable y sostenibilidad ambiental, al ser renovable, reciclable y biodegradable.</p>
                             </div>
                         </div>
-
-                        <!-- Bloque 3: Propuesta -->
                         <div class="nosotros-block">
                             <div class="image">
                                 <img src="i/Dois_logos1.png" alt="Productos de Re-Signifq Studio" loading="lazy">
@@ -615,8 +610,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Tarjetas de compromiso -->
                     <div class="card-grid" style="margin-top: 2rem;">
                         <div class="card">
                             <div class="card-content">
@@ -642,7 +635,7 @@
             </section>
         </div>
 
-        <!-- Sección PRODUCTOS corregida -->
+        <!-- Sección PRODUCTOS -->
         <div id="productos" class="page-section">
             <section>
                 <div class="container-inner">
@@ -650,12 +643,12 @@
                         <span class="badge" style="display: inline-block; background: var(--color-mostarda); color: var(--color-verde);">Tres líneas, una misma materia prima</span>
                     </div>
 
-                    <!-- Tarjeta 1: RE-STUDIO -->
+                    <!-- RE-STUDIO -->
                     <div class="card">
                         <img class="card-image" src="i/luminarias.jpeg" alt="Lámpara de lana de Re-Studio" loading="lazy">
                         <div class="card-content">
                             <div style="overflow: auto;">
-                                <img src="i/avatar_ovelha_pink.png" alt="Re_signifiq Studio" class="avatar-logo">
+                                <img src="i/Logo_estudio_ resignifq.png" alt="Re_signifiq Studio" class="avatar-logo">
                                 <div class="product-description">
                                     <p><em>Diseño y decoración.</em></p>
                                     <p>Alfombras, lámparas, paneles acústicos y objetos textiles donde el diseño contemporáneo se encuentra con las técnicas tradicionales sumados a alma Brasileira en suelo Asturiano.</p>
@@ -669,12 +662,12 @@
                         </div>
                     </div>
 
-                    <!-- Tarjeta 2: OVEYA VERDE -->
+                    <!-- OVEYA VERDE -->
                     <div class="card">
                         <img class="card-image" src="i/Manta_de_lana.jpeg" alt="Mantillo de lana Oveya Verde" loading="lazy">
                         <div class="card-content">
                             <div style="overflow: auto;">
-                                <img src="i/avatar_ovelha_brown.png" alt="Re_signifiq Oveya Verde" class="avatar-logo">
+                                <img src="i/Logo_Re_signifq_oveya verde.png" alt="Re_signifiq Oveya Verde" class="avatar-logo">
                                 <div class="product-description">
                                     <p><em>Soluciones naturales para el campo y el jardín.</em></p>
                                     <p><strong>Pellets de lana.</strong> Fertilizante de liberación lenta. Aportan nitrógeno, mejoran la estructura del suelo y retienen humedad.<br>
@@ -690,10 +683,13 @@
                         </div>
                     </div>
 
-                                        <!-- Banner "EM BREVE" pulsante -->
+                    <!-- Banner EM BREVE con imagen pulsante (sin bordes) -->
                     <div class="blinking-banner">
-                        <img src="en_breve_novo.png" alt="Próximamente" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                        <img src="i/en_breve_novo.png" alt="Próximamente - Productos disponibles pronto">
                     </div>
+                </div>
+            </section>
+        </div>
 
         <!-- Sección OBRADOR -->
         <div id="obrador" class="page-section">
