@@ -361,7 +361,7 @@
         }
         .footer-social i {
             font-size: 1.2rem;
-            color: var(--color-bege);
+            color: var(--color-beige);
         }
         .footer-logos img {
             max-width: 320px;
@@ -396,64 +396,66 @@
             width: 24px;
             text-align: center;
         }
+        /* ========== NOSOTROS MEJORADO ========== */
+        .nosotros-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .nosotros-block {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--color-beige);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .nosotros-block:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .nosotros-block.reverse {
+            flex-direction: row-reverse;
+        }
+        .nosotros-block .image {
+            flex: 1;
+            overflow: hidden;
+        }
+        .nosotros-block .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+        .nosotros-block:hover .image img {
+            transform: scale(1.02);
+        }
+        .nosotros-block .text {
+            flex: 1;
+            padding: 2rem;
+        }
+        .nosotros-block .text h3 {
+            color: var(--color-marrom);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .nosotros-block .text p {
+            margin-bottom: 1rem;
+            color: var(--color-verde);
+        }
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 1rem;
-            }
-            .logo img {
-                height: 60px;
-            }
-            .menu {
-                gap: 1.2rem;
-                justify-content: center;
-            }
-            section {
-                padding: 2rem 1.2rem;
-            }
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-            .stats-row {
+            .nosotros-block, .nosotros-block.reverse {
                 flex-direction: column;
             }
-            .btn-group {
-                justify-content: center;
+            .nosotros-block .text {
+                padding: 1.5rem;
             }
-            .btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
+            .nosotros-block .text h3 {
+                font-size: 1.5rem;
             }
-            .scroll-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 40px;
-                height: 40px;
-            }
-            .footer-logo img {
-                height: 60px;
-            }
-            .footer-logos img {
-                max-width: 260px;
-            }
-        }
-        :focus-visible {
-            outline: 2px solid var(--color-mostarda);
-            outline-offset: 2px;
-        }
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--color-verde);
-            color: var(--color-beige);
-            padding: 8px;
-            z-index: 100;
-            text-decoration: none;
-        }
-        .skip-link:focus {
-            top: 0;
         }
     </style>
 </head>
@@ -529,34 +531,56 @@
             </section>
         </div>
 
-        <!-- Sección NOSOTROS -->
+        <!-- Sección NOSOTROS mejorada con nuevo texto -->
         <div id="nosotros" class="page-section">
             <section>
                 <div class="container-inner">
-                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem;">NOSOTROS</h2>
+                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">NOSOTROS</h2>
+                    <div class="nosotros-grid">
+                        <!-- Bloque 1: El origen (texto NUEVO) -->
+                        <div class="nosotros-block">
+                            <div class="image">
+                                <img src="i/fuentes_cabadas_4a4a26.jpg" alt="Paisaje de Fuentes Cabadas" loading="lazy">
+                            </div>
+                            <div class="text">
+                                <h3>El origen</h3>
+                                <p><strong>Vimos un desajuste entre lo que la lana representa y el valor que el mercado le otorga.</strong></p>
+                                <p>Durante siglos, la lana fue el motor de las economías rurales en el occidente asturiano. Dibujaba paisajes, sostenía familias, calentaba hogares. Hoy, los mismos ganaderos que mantienen vivas las tradiciones pagan por deshacerse de ella.</p>
+                                <p>Esto no es un asunto de la lana. Es una cuestión de cómo la miramos.</p>
+                                <p>En Fuentes Cabadas, decidimos reescribir esta historia. Re-Signifq nace para demostrar que la lana no es un residuo. Es materia prima para un futuro más inteligente, sostenible y con identidad. Es el puente entre el saber hacer ancestral y el diseño contemporáneo. Entre la tierra y la innovación.</p>
+                                <p><strong>Porque cuando la lana se re-significa, todo el territorio se transforma.</strong></p>
+                            </div>
+                        </div>
 
-                    <div style="margin-bottom: 2rem;">
-                        <p>En los valles del occidente asturiano, las ovejas han dibujado el paisaje durante siglos. Pero hoy, la lana que antaño sostenía economías enteras se ha convertido en un estorbo. Los ganaderos pagan por deshacerse de ella. En Fuentes Cabadas, esta contradicción nos llevó a una convicción: <strong>la lana no es el problema; el problema es haber perdido la forma de entender su valor.</strong></p>
-                        <p style="margin-top: 1rem;">Re-Signifq nace precisamente en ese punto de inflexión: entre lo que la lana fue y todo lo que todavía puede llegar a ser.</p>
-                        <div style="margin: 1.5rem 0; text-align: center;">
-                            <img src="i/fuentes_cabadas_4a4a26.jpg" alt="Mapa de Fuentes Cabadas" style="max-width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+                        <!-- Bloque 2: Imagen a la derecha (propiedades de la lana) -->
+                        <div class="nosotros-block reverse">
+                            <div class="image">
+                                <img src="i/obrador.jpg" alt="Textura de lana natural" loading="lazy">
+                            </div>
+                            <div class="text">
+                                <h3>Materia prima excepcional</h3>
+                                <p>Trabajamos con lana de oveja procedente de ganaderías locales, incluyendo fibras que tradicionalmente no se utilizan en la industria textil. A través de procesos de bajo impacto ambiental y técnicas que combinan saberes ancestrales —como el lavado, cardado, hilado y fieltrado— con diseño contemporáneo, transformamos esta materia prima en productos para la agroecología, la artesanía y el hogar.</p>
+                                <p>La lana de oveja es una materia prima con múltiples propiedades: aislamiento térmico y acústico, termorregulación natural, durabilidad, seguridad al ser ininflamable y sostenibilidad ambiental, al ser renovable, reciclable y biodegradable.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bloque 3: Propuesta en dos líneas -->
+                        <div class="nosotros-block">
+                            <div class="image">
+                                <img src="i/luminarias.jpeg" alt="Productos de Re-Signifq Studio" loading="lazy">
+                            </div>
+                            <div class="text">
+                                <h3>Nuestra propuesta</h3>
+                                <p>Se articula en dos líneas principales. Por un lado, <strong>Re-Signifq Studio</strong>, centrado en la creación de piezas textiles y objetos de diseño con alto valor estético y cultural. Por otro, <strong>Oveya Verde</strong>, una línea de productos agroecológicos que utiliza la lana como recurso regenerativo para el suelo, ofreciendo alternativas naturales a los plásticos y fertilizantes químicos.</p>
+                                <p>Re-Signifq se inspira en la tradición lanera de la Península Ibérica, en las rutas de la trashumancia y en el legado de las mestas, entendiendo la lana no solo como material, sino como parte de un sistema cultural, económico y ecológico que conectaba territorio, comunidad y naturaleza.</p>
+                                <p>Más allá de lo productivo, el proyecto busca generar impacto social, fortalecer la economía rural, recuperar oficios en riesgo de desaparición, promover el saber hacer femenino y contribuir a fijar población en zonas rurales.</p>
+                                <p>Aspiramos a consolidarnos como un espacio de creación, investigación y colaboración, donde la lana vuelva a ocupar un lugar central en el desarrollo de soluciones sostenibles.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div style="background: var(--color-beige); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 2rem;">
-                        <p>Trabajamos con lana de oveja procedente de ganaderías locales, incluyendo fibras que tradicionalmente no se utilizan en la industria textil. A través de procesos de bajo impacto ambiental y técnicas que combinan saberes ancestrales —como el lavado, cardado, hilado y fieltrado— con diseño contemporáneo, transformamos esta materia prima en productos para la agroecología, la artesanía y el hogar.</p>
-                        <p style="margin-top: 1rem;">La lana de oveja es una materia prima con múltiples propiedades: aislamiento térmico y acústico, termorregulación natural, durabilidad, seguridad al ser ininflamable y sostenibilidad ambiental, al ser renovable, reciclable y biodegradable.</p>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h3 style="color: var(--color-marrom);">Nuestra propuesta</h3>
-                        <p>Se articula en dos líneas principales. Por un lado, <strong>Re-Signifq Studio</strong>, centrado en la creación de piezas textiles y objetos de diseño con alto valor estético y cultural. Por otro, <strong>Oveya Verde</strong>, una línea de productos agroecológicos que utiliza la lana como recurso regenerativo para el suelo, ofreciendo alternativas naturales a los plásticos y fertilizantes químicos.</p>
-                        <p style="margin-top: 1rem;">Re-Signifq se inspira en la tradición lanera de la Península Ibérica, en las rutas de la trashumancia y en el legado de las mestas, entendiendo la lana no solo como material, sino como parte de un sistema cultural, económico y ecológico que conectaba territorio, comunidad y naturaleza.</p>
-                        <p style="margin-top: 1rem;">Más allá de lo productivo, el proyecto busca generar impacto social, fortalecer la economía rural, recuperar oficios en riesgo de desaparición, promover el saber hacer femenino y contribuir a fijar población en zonas rurales.</p>
-                        <p style="margin-top: 1rem;">Aspiramos a consolidarnos como un espacio de creación, investigación y colaboración, donde la lana vuelva a ocupar un lugar central en el desarrollo de soluciones sostenibles.</p>
-                    </div>
-
-                    <div class="card-grid" style="margin-bottom: 2rem;">
+                    <!-- Tarjetas de compromiso y por qué importa -->
+                    <div class="card-grid" style="margin-top: 2rem;">
                         <div class="card">
                             <div class="card-content">
                                 <h3>Nuestro compromiso</h3>
@@ -581,7 +605,7 @@
             </section>
         </div>
 
-        <!-- Sección PRODUCTOS con nombres actualizados y títulos como imágenes -->
+        <!-- Sección PRODUCTOS (sin cambios) -->
         <div id="productos" class="page-section">
             <section>
                 <div class="container-inner">
@@ -622,7 +646,7 @@
             </section>
         </div>
 
-        <!-- Sección OBRADOR con imagen modificada -->
+        <!-- Sección OBRADOR -->
         <div id="obrador" class="page-section">
             <section style="background: var(--color-rosa);">
                 <div class="container-inner">
@@ -725,7 +749,7 @@
             </section>
         </div>
 
-        <!-- Sección BLOG (placeholder) -->
+        <!-- Sección BLOG -->
         <div id="blog" class="page-section">
             <section>
                 <div class="container-inner">
