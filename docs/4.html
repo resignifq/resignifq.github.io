@@ -243,10 +243,39 @@
             margin-bottom: 0.75rem;
             color: var(--color-marrom);
         }
-        .card-content .logo-producto {
-            max-width: 80%;
-            height: auto;
-            margin-bottom: 0.75rem;
+        /* Nuevos estilos para logos tipo avatar */
+        .avatar-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            box-shadow: var(--shadow-sm);
+            margin-right: 1rem;
+            float: left;
+            shape-outside: circle(50%);
+        }
+        .product-description {
+            overflow: hidden;
+        }
+        .blinking-banner {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: var(--color-mostarda);
+            color: var(--color-verde);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            animation: pulse 1.5s infinite ease-in-out;
+            cursor: pointer;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); background-color: var(--color-rosa); color: var(--color-marrom); }
+            100% { opacity: 0.6; transform: scale(0.98); }
         }
         .faq-item {
             background: var(--color-beige);
@@ -455,6 +484,15 @@
             .nosotros-block .text h3 {
                 font-size: 1.5rem;
             }
+            .avatar-logo {
+                width: 60px;
+                height: 60px;
+                margin-right: 0.75rem;
+            }
+            .blinking-banner {
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -530,13 +568,13 @@
             </section>
         </div>
 
-        <!-- Sección NOSOTROS mejorada con nuevo texto -->
+        <!-- Sección NOSOTROS (sin cambios) -->
         <div id="nosotros" class="page-section">
             <section>
                 <div class="container-inner">
                     <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">NOSOTROS</h2>
                     <div class="nosotros-grid">
-                        <!-- Bloque 1: El origen (texto NUEVO) -->
+                        <!-- Bloque 1: El origen -->
                         <div class="nosotros-block">
                             <div class="image">
                                 <img src="i/fuentes_cabadas_4a4a26.jpg" alt="Paisaje de Fuentes Cabadas" loading="lazy">
@@ -551,7 +589,7 @@
                             </div>
                         </div>
 
-                        <!-- Bloque 2: Imagen a la derecha (propiedades de la lana) -->
+                        <!-- Bloque 2: Materia prima -->
                         <div class="nosotros-block reverse">
                             <div class="image">
                                 <img src="i/Lana_material.jpg" alt="Textura de lana natural" loading="lazy">
@@ -563,7 +601,7 @@
                             </div>
                         </div>
 
-                        <!-- Bloque 3: Propuesta en dos líneas -->
+                        <!-- Bloque 3: Propuesta -->
                         <div class="nosotros-block">
                             <div class="image">
                                 <img src="i/Dois_logos1.png" alt="Productos de Re-Signifq Studio" loading="lazy">
@@ -578,7 +616,7 @@
                         </div>
                     </div>
 
-                    <!-- Tarjetas de compromiso y por qué importa -->
+                    <!-- Tarjetas de compromiso -->
                     <div class="card-grid" style="margin-top: 2rem;">
                         <div class="card">
                             <div class="card-content">
@@ -604,42 +642,57 @@
             </section>
         </div>
 
-        <!-- Sección PRODUCTOS -->
+        <!-- Sección PRODUCTOS corregida -->
         <div id="productos" class="page-section">
             <section>
                 <div class="container-inner">
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <span class="badge" style="display: inline-block; background: var(--color-mostarda); color: var(--color-verde);">Tres líneas, una misma materia prima</span>
                     </div>
-                    <div class="card-grid">
-                        <div class="card">
-                            <img class="card-image" src="i/luminarias.jpeg" alt="Lámpara de lana de Re-Studio" loading="lazy">
-                            <div class="card-content">
-                                <img src="i/Logo_estudio_ resignifq.png" alt="Re_signifiq Studio" class="logo-producto" style="max-width: 80%; height: auto; margin-bottom: 0.75rem;">
-                                <p><em>Diseño y decoración.</em></p>
-                                <p>Alfombras, lámparas, paneles acústicos y objetos textiles donde el diseño contemporáneo se encuentra con las técnicas tradicionales sumados a alma Brasileira en suelo Asturiano.</p>
-                                <p><strong>Piezas únicas o series limitadas. Hechas a mano en Asturias.</strong></p>
-                                <div class="btn-group" style="margin-top: 1rem;">
-                                    <a href="#" data-section="contacto" class="btn">Ver colección <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                                    <a href="#" data-section="contacto" class="btn btn-light">Consultar disponibilidad <i class="fas fa-calendar-alt" aria-hidden="true"></i></a>
+
+                    <!-- Tarjeta 1: RE-STUDIO -->
+                    <div class="card">
+                        <img class="card-image" src="i/luminarias.jpeg" alt="Lámpara de lana de Re-Studio" loading="lazy">
+                        <div class="card-content">
+                            <div style="overflow: auto;">
+                                <img src="i/Logo_estudio_ resignifq.png" alt="Re_signifiq Studio" class="avatar-logo">
+                                <div class="product-description">
+                                    <p><em>Diseño y decoración.</em></p>
+                                    <p>Alfombras, lámparas, paneles acústicos y objetos textiles donde el diseño contemporáneo se encuentra con las técnicas tradicionales sumados a alma Brasileira en suelo Asturiano.</p>
+                                    <p><strong>Piezas únicas o series limitadas. Hechas a mano en Asturias.</strong></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-image" src="i/Manta_de_lana.jpeg" alt="Mantillo de lana Oveya Verde" loading="lazy">
-                            <div class="card-content">
-                                <img src="i/Logo_Re_signifq_oveya verde.png" alt="Re_signifiq Oveya Verde" class="logo-producto" style="max-width: 80%; height: auto; margin-bottom: 0.75rem;">
-                                <p><em>Soluciones naturales para el campo y el jardín.</em></p>
-                                <p><strong>Pellets de lana.</strong> Fertilizante de liberación lenta. Aportan nitrógeno, mejoran la estructura del suelo y retienen humedad.<br>
-                                <strong>Mantilla de lana.</strong> Acolchado natural que sustituye al plástico. Protege del frío, regula humedad, ahuyenta babosas y se convierte en abono.<br>
-                                <strong>Maseta de lana.</strong> Semillero biodegradable. Se planta directamente, protege la raíz y alimenta el suelo.</p>
-                                <p><strong>100% natural. 100% biodegradable. 100% lana recuperada.</strong></p>
-                                <div class="btn-group" style="margin-top: 1rem;">
-                                    <a href="#" data-section="contacto" class="btn">Saber más <i class="fas fa-leaf" aria-hidden="true"></i></a>
-                                    <a href="#" data-section="contacto" class="btn btn-light">Avisarme cuando estén listos <i class="fas fa-bell" aria-hidden="true"></i></a>
-                                </div>
+                            <div class="btn-group" style="margin-top: 1rem;">
+                                <a href="#" data-section="contacto" class="btn">Ver colección <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                                <a href="#" data-section="contacto" class="btn btn-light">Consultar disponibilidad <i class="fas fa-calendar-alt" aria-hidden="true"></i></a>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Tarjeta 2: OVEYA VERDE -->
+                    <div class="card">
+                        <img class="card-image" src="i/Manta_de_lana.jpeg" alt="Mantillo de lana Oveya Verde" loading="lazy">
+                        <div class="card-content">
+                            <div style="overflow: auto;">
+                                <img src="i/Logo_Re_signifq_oveya verde.png" alt="Re_signifiq Oveya Verde" class="avatar-logo">
+                                <div class="product-description">
+                                    <p><em>Soluciones naturales para el campo y el jardín.</em></p>
+                                    <p><strong>Pellets de lana.</strong> Fertilizante de liberación lenta. Aportan nitrógeno, mejoran la estructura del suelo y retienen humedad.<br>
+                                    <strong>Mantilla de lana.</strong> Acolchado natural que sustituye al plástico. Protege del frío, regula humedad, ahuyenta babosas y se convierte en abono.<br>
+                                    <strong>Maseta de lana.</strong> Semillero biodegradable. Se planta directamente, protege la raíz y alimenta el suelo.</p>
+                                    <p><strong>100% natural. 100% biodegradable. 100% lana recuperada.</strong></p>
+                                </div>
+                            </div>
+                            <div class="btn-group" style="margin-top: 1rem;">
+                                <a href="#" data-section="contacto" class="btn">Saber más <i class="fas fa-leaf" aria-hidden="true"></i></a>
+                                <a href="#" data-section="contacto" class="btn btn-light">Avisarme cuando estén listos <i class="fas fa-bell" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banner "EM BREVE" pulsante -->
+                    <div class="blinking-banner">
+                        EM BREVE
                     </div>
                 </div>
             </section>
