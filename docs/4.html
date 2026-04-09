@@ -742,56 +742,60 @@
             </section>
         </div>
 
-        <!-- Sección CONTACTO -->
-        <div id="contacto" class="page-section">
-            <section style="background: var(--color-marrom); color: var(--color-beige);">
-                <div class="container-inner">
-                    <h2>CONTACTO Y REDES</h2>
-                    <p><strong>Háblanos, pregúntanos, ven a conocernos.</strong></p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
-                        <div style="flex: 1;">
-                            <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> <strong>Email:</strong> resignifq@gmail.com</p>
-                            <p><i class="fab fa-instagram contact-icon" aria-hidden="true"></i> <strong>Instagram:</strong> @re_signifq</p>
-                            <p><i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i> <strong>Dirección:</strong> Fuentes Cabadas, Concejo de Boal (Asturias)</p>
-                            <p>¿Quieres colaborar, encargar algo o simplemente charlar sobre lana asturiana? Estamos a un mensaje de distancia.</p>
-                        </div>
-                        <div style="flex: 1;" class="contact-form">
-                            <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" id="nombre" name="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="interes">¿Qué te interesa?</label>
-                                    <select id="interes" name="interes">
-                                        <option>Studio</option><option>Oveya Verde</option><option>Obrador</option><option>Colaboración</option><option>Otros</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="mensaje">Mensaje</label>
-                                    <textarea id="mensaje" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
-                        <h3>NEWSLETTER</h3>
-                        <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas. Además, al apuntarte recibirás gratis nuestra pequeña guía: <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                            <input type="email" placeholder="Tu email" style="flex: 1;" aria-label="Correo electrónico para newsletter">
-                            <button class="btn btn-light">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
-                        </div>
-                        <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
-                    </div>
+        <!-- Sección CONTACTO (adaptada para enviar a WhatsApp via form2chat.me) -->
+<div id="contacto" class="page-section">
+    <section style="background: var(--color-marrom); color: var(--color-beige);">
+        <div class="container-inner">
+            <h2>CONTACTO Y REDES</h2>
+            <p><strong>Háblanos, pregúntanos, ven a conocernos.</strong></p>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                <div style="flex: 1;">
+                    <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> <strong>Email:</strong> resignifq@gmail.com</p>
+                    <p><i class="fab fa-instagram contact-icon" aria-hidden="true"></i> <strong>Instagram:</strong> @re_signifq</p>
+                    <p><i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i> <strong>Dirección:</strong> Fuentes Cabadas, Concejo de Boal (Asturias)</p>
+                    <p>¿Quieres colaborar, encargar algo o simplemente charlar sobre lana asturiana? Estamos a un mensaje de distancia.</p>
                 </div>
-            </section>
+                <div style="flex: 1;" class="contact-form">
+                    <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
+                    <!-- O formulário continua o mesmo, mas o widget cuidará do envio -->
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interes">¿Qué te interesa?</label>
+                            <select id="interes" name="interes">
+                                <option>Studio</option><option>Oveya Verde</option><option>Obrador</option><option>Colaboración</option><option>Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
+                <h3>NEWSLETTER</h3>
+                <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas. Además, al apuntarte recibirás gratis nuestra pequeña guía: <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <input type="email" placeholder="Tu email" style="flex: 1;" aria-label="Correo electrónico para newsletter">
+                    <button class="btn btn-light">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
+                </div>
+                <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
+            </div>
         </div>
+    </section>
+</div>
+
+<!-- Script do widget form2chat.me (deve ficar dentro do body, após a seção de contacto) -->
+<script src="https://www.form2chat.me/js/widget.js?formId=69d7c766f7ea202b7179b9be"></script>
 
         <!-- Sección BLOG -->
         <div id="blog" class="page-section">
