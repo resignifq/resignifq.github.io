@@ -741,7 +741,7 @@
                 </div>
             </section>
         </div>
-<!-- Sección CONTACTO con widget form2chat.me (envio sin recargar) -->
+<!-- Sección CONTACTO con Web2Phone -->
 <div id="contacto" class="page-section">
     <section style="background: var(--color-marrom); color: var(--color-beige);">
         <div class="container-inner">
@@ -756,29 +756,41 @@
                 </div>
                 <div style="flex: 1;" class="contact-form">
                     <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
-                    <!-- El formulario NO necesita action, el widget lo interceptará -->
-                    <form id="formContacto">
+                    
+                    <!-- Formulario integrado con Web2Phone -->
+                    <form class="w2p-form" data-web2phone="form"
+                          data-public-key="j4Wg3ULIewaEHaEXbFu71lmY"
+                          data-endpoint="https://web2phone.co.uk/api/v1/submit/">
+                        
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" required>
+                            <input type="text" id="nombre" name="your_name" placeholder="Tu nombre" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="interes">¿Qué te interesa?</label>
                             <select id="interes" name="interes">
-                                <option>Studio</option><option>Oveya Verde</option><option>Obrador</option><option>Colaboración</option><option>Otros</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Oveya Verde">Oveya Verde</option>
+                                <option value="Obrador">Obrador</option>
+                                <option value="Colaboración">Colaboración</option>
+                                <option value="Otros">Otros</option>
                             </select>
                         </div>
+                        
                         <div class="form-group">
                             <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+                            <textarea id="mensaje" name="message" rows="3" placeholder="Escribe tu mensaje..."></textarea>
                         </div>
+                        
                         <button type="submit" class="btn">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                        <p data-w2p-output class="w2p-output" aria-live="polite" style="margin-top: 1rem;"></p>
                     </form>
-                    <div id="formStatus" style="margin-top: 1rem; font-size: 0.9rem;"></div>
                 </div>
             </div>
             <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
@@ -794,29 +806,8 @@
     </section>
 </div>
 
-<!-- Widget de form2chat.me -->
-<script src="https://www.form2chat.me/js/widget.js?formId=69d7c766f7ea202b7179b9be"></script>
-
-<script>
-    // Pequeño script para evitar el envío tradicional y mostrar estado
-    document.getElementById('formContacto').addEventListener('submit', function(e) {
-        // No prevenimos el evento completamente, dejamos que el widget actúe,
-        // pero podemos agregar un indicador de carga.
-        // El widget ya se encarga del envío asíncrono.
-        document.getElementById('formStatus').innerHTML = '<span style="color: #b27f2e;">Enviando...</span>';
-        // El widget procesará el formulario y luego llamará a su propio callback.
-        // Si quieres capturar el resultado, puedes usar el callback global de form2chat.
-        window.form2chatCallback = function(success, data) {
-            if (success) {
-                document.getElementById('formStatus').innerHTML = '<span style="color: green;">✅ Mensaje enviado. Te responderemos pronto.</span>';
-                document.getElementById('formContacto').reset();
-                setTimeout(() => document.getElementById('formStatus').innerHTML = '', 5000);
-            } else {
-                document.getElementById('formStatus').innerHTML = '<span style="color: red;">❌ Error al enviar. Intenta de nuevo.</span>';
-            }
-        };
-    });
-</script>
+<!-- Script de Web2Phone (debe cargarse una sola vez) -->
+<script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
         <!-- Sección BLOG -->
         <div id="blog" class="page-section">
             <section>
