@@ -742,7 +742,7 @@
             </section>
         </div>
 
-        <!-- Sección CONTACTO (adaptada para enviar a WhatsApp via form2chat.me) -->
+     <!-- Sección CONTACTO (enviando via form2chat.me - HTML puro) -->
 <div id="contacto" class="page-section">
     <section style="background: var(--color-marrom); color: var(--color-beige);">
         <div class="container-inner">
@@ -757,8 +757,9 @@
                 </div>
                 <div style="flex: 1;" class="contact-form">
                     <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
-                    <!-- O formulário continua o mesmo, mas o widget cuidará do envio -->
-                    <form action="#" method="post">
+                    <!-- IMPORTANTE: action aponta para o endpoint HTML do form2chat.me -->
+                    <form action="https://www.form2chat.me/html/form.html?formId=69d7c766f7ea202b7179b9be" method="POST">
+                        <!-- Mantenha os mesmos campos, com os mesmos nomes -->
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" id="nombre" name="nombre" required>
@@ -793,10 +794,6 @@
         </div>
     </section>
 </div>
-
-<!-- Script do widget form2chat.me (deve ficar dentro do body, após a seção de contacto) -->
-<script src="https://www.form2chat.me/js/widget.js?formId=69d7c766f7ea202b7179b9be"></script>
-
         <!-- Sección BLOG -->
         <div id="blog" class="page-section">
             <section>
