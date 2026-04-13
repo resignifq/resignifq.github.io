@@ -741,7 +741,7 @@
                 </div>
             </section>
         </div>
-<!-- Sección CONTACTO con Web2Phone (3 campos correctos) y MailerLite -->
+<!-- Sección CONTACTO con Web2Phone (campos correctos y whitelist) -->
 <div id="contacto" class="page-section">
     <section style="background: var(--color-marrom); color: var(--color-beige);">
         <div class="container-inner">
@@ -757,14 +757,15 @@
                 <div style="flex: 1;" class="contact-form">
                     <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
                     
-                    <!-- FORMULARIO WEB2PHONE CON LOS 3 CAMPOS CORRECTOS -->
-                    <form class="w2p-form" data-web2phone="form"
+                    <!-- Formulario Web2Phone (estructura exacta) -->
+                    <form class="w2p-form" 
+                          data-web2phone="form"
                           data-public-key="j4Wg3ULIewaEHaEXbFu71lmY"
                           data-endpoint="https://web2phone.co.uk/api/v1/submit/">
                         
                         <div class="form-group">
                             <label for="your_name">Nombre</label>
-                            <input type="text" id="your_name" name="your_name" placeholder="Jane Doe" required>
+                            <input type="text" id="your_name" name="your_name" placeholder="Juan Pablo" required>
                         </div>
                         
                         <div class="form-group">
@@ -777,13 +778,13 @@
                             <textarea id="message" name="message" rows="3" placeholder="How can we help?"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                        <button type="submit" class="btn">Send <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
                         <p data-w2p-output class="w2p-output" aria-live="polite" style="margin-top: 1rem;"></p>
                     </form>
                 </div>
             </div>
 
-            <!-- NEWSLETTER MailerLite (simplificada, funcional) -->
+            <!-- NEWSLETTER MailerLite (funcional) -->
             <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
                 <h3>NEWSLETTER</h3>
                 <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas.</p>
@@ -802,7 +803,7 @@
 <!-- Script de Web2Phone (obrigatório) -->
 <script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
 
-<!-- MailerLite Universal Script (para rastreo y futuro) -->
+<!-- MailerLite Universal Script -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2257749');
