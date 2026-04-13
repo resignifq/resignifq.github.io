@@ -741,7 +741,7 @@
                 </div>
             </section>
         </div>
-<!-- Sección CONTACTO (Web2Phone + MailerLite newsletter) -->
+<!-- Sección CONTACTO (Web2Phone + MailerLite newsletter simplificada) -->
 <div id="contacto" class="page-section">
     <section style="background: var(--color-marrom); color: var(--color-beige);">
         <div class="container-inner">
@@ -787,15 +787,17 @@
                 </div>
             </div>
 
-            <!-- NEWSLETTER con MailerLite -->
+            <!-- NEWSLETTER simplificada (MailerLite funcional, estilo original) -->
             <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
                 <h3>NEWSLETTER</h3>
                 <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas.</p>
                 <p><strong>Además, al apuntarte recibirás gratis nuestra pequeña guía:</strong> <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
-                
-                <!-- Código MailerLite (Embedded Form) -->
-                <div class="ml-embedded" data-form="7eBByH"></div>
-                
+
+                <!-- Formulario MailerLite minimalista (solo email + botón, sin banner) -->
+                <form action="https://assets.mailerlite.com/jsonp/2257749/forms/184308126904747528/subscribe" method="post" target="_blank" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <input type="email" name="fields[email]" placeholder="Tu email" style="flex: 1; min-width: 200px; padding: 0.8rem 1rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); font-family: var(--font-body); background-color: var(--color-beige); color: var(--color-verde);" required>
+                    <button type="submit" class="btn btn-light" style="background-color: var(--color-mostarda); color: var(--color-verde); border: none; padding: 0.75rem 1.8rem; border-radius: 40px; font-weight: 600; cursor: pointer;">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
+                </form>
                 <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
             </div>
         </div>
@@ -805,7 +807,7 @@
 <!-- Script de Web2Phone (obrigatório) -->
 <script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
 
-<!-- MailerLite Universal Script (deve estar presente uma vez na página) -->
+<!-- MailerLite Universal Script (já existente, mas garantimos que está aqui) -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2257749');
