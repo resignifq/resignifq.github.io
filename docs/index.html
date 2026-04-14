@@ -741,58 +741,93 @@
                 </div>
             </section>
         </div>
-
-        <!-- Sección CONTACTO -->
-        <div id="contacto" class="page-section">
-            <section style="background: var(--color-marrom); color: var(--color-beige);">
-                <div class="container-inner">
-                    <h2>CONTACTO Y REDES</h2>
-                    <p><strong>Háblanos, pregúntanos, ven a conocernos.</strong></p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
-                        <div style="flex: 1;">
-                            <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> <strong>Email:</strong> resignifq@gmail.com</p>
-                            <p><i class="fab fa-instagram contact-icon" aria-hidden="true"></i> <strong>Instagram:</strong> @re_signifq</p>
-                            <p><i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i> <strong>Dirección:</strong> Fuentes Cabadas, Concejo de Boal (Asturias)</p>
-                            <p>¿Quieres colaborar, encargar algo o simplemente charlar sobre lana asturiana? Estamos a un mensaje de distancia.</p>
-                        </div>
-                        <div style="flex: 1;" class="contact-form">
-                            <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" id="nombre" name="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="interes">¿Qué te interesa?</label>
-                                    <select id="interes" name="interes">
-                                        <option>Studio</option><option>Oveya Verde</option><option>Obrador</option><option>Colaboración</option><option>Otros</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="mensaje">Mensaje</label>
-                                    <textarea id="mensaje" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
-                        <h3>NEWSLETTER</h3>
-                        <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas. Además, al apuntarte recibirás gratis nuestra pequeña guía: <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                            <input type="email" placeholder="Tu email" style="flex: 1;" aria-label="Correo electrónico para newsletter">
-                            <button class="btn btn-light">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
-                        </div>
-                        <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
-                    </div>
+<!-- Sección CONTACTO – Web2Phone + Newsletter con envío AJAX -->
+<div id="contacto" class="page-section">
+    <section style="background: var(--color-marrom); color: var(--color-beige);">
+        <div class="container-inner">
+            <h2>CONTACTO Y REDES</h2>
+            <p><strong>Háblanos, pregúntanos, ven a conocernos.</strong></p>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                <div style="flex: 1;">
+                    <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> <strong>Email:</strong> resignifq@gmail.com</p>
+                    <p><i class="fab fa-instagram contact-icon" aria-hidden="true"></i> <strong>Instagram:</strong> @re_signifq</p>
+                    <p><i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i> <strong>Dirección:</strong> Fuentes Cabadas, Concejo de Boal (Asturias)</p>
+                    <p>¿Quieres colaborar, encargar algo o simplemente charlar sobre lana asturiana? Estamos a un mensaje de distancia.</p>
                 </div>
-            </section>
-        </div>
+                <div style="flex: 1;" class="contact-form">
+                    <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
+                    
+                    <!-- Web2Phone form (campos field, field_2, field_3) -->
+                    <form class="w2p-form" 
+                          data-web2phone="form"
+                          data-public-key="j4Wg3ULIewaEHaEXbFu71lmY"
+                          data-endpoint="https://web2phone.co.uk/api/v1/submit/">
+                        <div style="margin-bottom: 1rem;">
+                            <input name="field" type="text" placeholder="Tu nombre" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input name="field_2" type="email" placeholder="Tu email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);" required>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <textarea name="field_3" rows="3" placeholder="Escribe tu mensaje..." style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="background-color: var(--color-verde); color: var(--color-beige); padding: 0.75rem 1.5rem; border: none; border-radius: 40px; cursor: pointer; font-weight: 600;">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                        <p data-w2p-output class="w2p-output" aria-live="polite" style="margin-top: 1rem;"></p>
+                    </form>
+                </div>
+            </div>
 
+            <!-- NEWSLETTER con envío AJAX (sin abrir nueva página) -->
+            <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
+                <h3>NEWSLETTER</h3>
+                <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas.</p>
+                <p><strong>Además, al apuntarte recibirás gratis nuestra pequeña guía:</strong> <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
+                
+                <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <input type="email" id="newsletterEmail" name="fields[email]" placeholder="Tu email" style="flex: 1; min-width: 200px; padding: 0.8rem 1rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); font-family: var(--font-body); background-color: var(--color-beige); color: var(--color-verde);" required>
+                    <button type="submit" class="btn btn-light" style="background-color: var(--color-mostarda); color: var(--color-verde); border: none; padding: 0.75rem 1.8rem; border-radius: 40px; font-weight: 600; cursor: pointer;">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
+                </form>
+                <div id="newsletterMessage" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
+                <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2257749');
+
+    // Newsletter AJAX
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value.trim();
+        const messageDiv = document.getElementById('newsletterMessage');
+        if (!email) return;
+        
+        messageDiv.innerHTML = '<span style="color: #b27f2e;">Enviando...</span>';
+        
+        try {
+            const response = await fetch('https://assets.mailerlite.com/jsonp/2257749/forms/184308126904747528/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ 'fields[email]': email })
+            });
+            const data = await response.json();
+            if (data.success || response.ok) {
+                messageDiv.innerHTML = '<span style="color: green;">✅ ¡Gracias! Te has suscrito correctamente.</span>';
+                document.getElementById('newsletterForm').reset();
+                setTimeout(() => messageDiv.innerHTML = '', 5000);
+            } else {
+                messageDiv.innerHTML = '<span style="color: red;">❌ Error al suscribir. Inténtalo de nuevo.</span>';
+            }
+        } catch (error) {
+            messageDiv.innerHTML = '<span style="color: red;">❌ Error de conexión. Inténtalo más tarde.</span>';
+        }
+    });
+</script>
         <!-- Sección BLOG -->
         <div id="blog" class="page-section">
             <section>
@@ -834,7 +869,50 @@
 </div>
 
 <div class="scroll-top" aria-label="Volver arriba" role="button" tabindex="0"><i class="fas fa-arrow-up" aria-hidden="true"></i></div>
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/+34655097590?text=Hola%2C%20me%20interesa%20Re-Signifq" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
+<style>
+    /* Botón flotante de WhatsApp */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 80px;      /* por encima del botón de scroll (que está a 2rem ≈ 32px) */
+        right: 2rem;
+        background-color: #25D366;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        z-index: 98;       /* ligeramente por debajo del scroll-top (z-index 99) para que quede debajo al hacer clic? pero ambos visibles */
+        text-decoration: none;
+    }
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #128C7E;
+    }
+    /* Ajuste para móviles */
+    @media (max-width: 768px) {
+        .whatsapp-float {
+            bottom: 70px;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+        }
+    }
+</style>
 <script>
     function showSection(sectionId) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
