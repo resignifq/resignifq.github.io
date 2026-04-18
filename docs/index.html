@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,6 +44,9 @@
             --font-body: 'Inter', system-ui, -apple-system, sans-serif;
             --font-heading: 'Khand', sans-serif;
         }
+        html, body {
+            overflow-x: hidden;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -62,45 +66,114 @@
             letter-spacing: -0.01em;
         }
         .container {
-            max-width: 1280px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
             margin: 0 auto;
             background-color: var(--color-beige);
             box-shadow: var(--shadow-md);
         }
         /* Full bleed image */
         .full-bleed {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            overflow: hidden;
+            width: 100%;
+            margin-inline: calc(50% - 50vw);
         }
+
         .full-bleed img {
             width: 100%;
             height: auto;
             display: block;
         }
-        header {
+        /* HEADER BASE */
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--color-marrom);
-            padding: 0.8rem 2rem;
-            flex-wrap: wrap;
+            padding: 0.8rem 1.5rem;
             position: sticky;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(4px);
-            background-color: rgba(121, 90, 52, 0.95);
+            z-index: 1000;
+            background: rgba(121, 90, 52, 0.95);
+            backdrop-filter: blur(6px);
         }
-        .logo img {
+
+        /* HAMBURGER */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 26px;
+            height: 3px;
+            background: var(--color-beige);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* MENU DESKTOP */
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background: var(--color-marrom);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                gap: 1.5rem;
+                transition: 0.3s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+            }
+
+            .menu a {
+                font-size: 1.4rem;
+            }
+
+            .menu.active {
+                right: 0;
+            }
+
+            /* animação hamburger -> X */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+        }
+        .logo {
+            width: 120px;
             height: 80px;
-            width: auto;
+            cursor: pointer;
+            background-image: url('i/logo_Banner_bege.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
             transition: transform 0.2s;
         }
-        .logo img:hover {
+        .logo:hover {
             transform: scale(1.02);
         }
         .menu {
@@ -135,6 +208,12 @@
         section {
             padding: 3rem 2rem;
         }
+        @media screen and (max-width: 768px) {
+            section {
+                padding: 2rem 1rem;
+            }
+            
+        }
         .container-inner {
             max-width: 1120px;
             margin: 0 auto;
@@ -148,6 +227,14 @@
             font-weight: 500;
             font-size: 1.1rem;
             letter-spacing: 1px;
+        }
+        .badge-pill {
+            display: inline-flex;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            background-color: var(--color-mostarda);
+            color: var(--color-beige);
+            font-size: 1.25rem;
         }
         .hero-text {
             margin-top: 2rem;
@@ -179,12 +266,19 @@
             font-size: 1rem;
         }
         .btn-light {
-            background-color: var(--color-mostarda);
-            color: var(--color-verde);
+            background-color: transparent;
+            border: 1px solid var(--color-mostarda);
+            color: var(--color-mostarda);
         }
         .btn:hover {
             transform: translateY(-2px);
             filter: brightness(1.05);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-light:hover {
+            background-color: var(--color-mostarda);
+            color: var(--color-beige);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
         }
         .stats-row {
@@ -313,10 +407,6 @@
             padding-bottom: 1rem;
         }
         .contact-form {
-            background: var(--color-beige);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            box-shadow: var(--shadow-sm);
             color: var(--color-verde);
         }
         .form-group {
@@ -365,11 +455,11 @@
             text-decoration: underline;
         }
         .footer-logo {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         .footer-logo img {
-            height: 80px;
-            width: auto;
+            width: 120px;
+            height: auto;
         }
         .footer-social {
             margin: 1rem 0;
@@ -393,8 +483,15 @@
             font-size: 1.2rem;
             color: var(--color-beige);
         }
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
         .footer-logos img {
-            max-width: 320px;
+            width: 360px;
+            max-width: 100%;
             margin-top: 1rem;
             opacity: 0.8;
         }
@@ -494,6 +591,63 @@
                 margin-top: 2rem;
             }
         }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-info p {
+            margin-bottom: 1rem;
+            color: var(--color-verde);
+        }
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 88px;      /* por encima del botón de scroll (que está a 2rem ≈ 32px) */
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            z-index: 98;       /* ligeramente por debajo del scroll-top (z-index 99) para que quede debajo al hacer clic? pero ambos visibles */
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 90px;
+                right: 2rem;
+                font-size: 1.5rem;
+            }
+        }
+        /* Estilos para el formulario de contacto */
+        .contact-form .w2p-form button[type="submit"], .w2p-form input[type="submit"], form[data-web2phone="form"] button[type="submit"], form[data-web2phone="form"] input[type="submit"] {
+            background-color: var(--color-verde) !important;
+            color: var(--color-beige) !important;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .newsletter {
+            color: var(--color-verde);
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -506,10 +660,21 @@
     </noscript>
 
 <div class="container">
-    <header>
-        <div class="logo">
-            <img src="i/logo_Banner_bege.png" alt="Re-Signifq - Logotipo">
-        </div>
+    <header class="header">
+        <a href="#" data-section="inicio" class="logo-link" aria-label="Ir a la sección de inicio">
+            <div class="logo" role="img" aria-label="Logotipo de Re-Signifq" tabindex="0">
+                <!-- <img src="i/logo_Banner_bege.png" alt="Re-Signifq - Logotipo"> -->
+            </div>
+        </a>
+        
+        <!-- Botão hamburger -->
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Menu -->
         <nav class="menu" aria-label="Menú principal">
             <a href="#" data-section="inicio">INICIO</a>
             <a href="#nosotros" data-section="nosotros">NOSOTROS</a>
@@ -517,7 +682,7 @@
             <a href="#obrador" data-section="obrador">OBRADOR</a>
             <a href="#preguntas" data-section="preguntas">PREGUNTAS</a>
             <a href="#contact" data-section="contacto">CONTACTO</a>
-            <a href="#blog" data-section="blog">BLOG</a>
+            <!-- <a href="#blog" data-section="blog">BLOG</a> -->
         </nav>
     </header>
 
@@ -639,7 +804,7 @@
             <section>
                 <div class="container-inner">
                     <div style="text-align: center; margin-bottom: 2rem;">
-                        <span class="badge" style="display: inline-block; background: var(--color-mostarda); color: var(--color-verde);">Tres líneas, una misma materia prima</span>
+                        <span class="badge badge-pill">Tres líneas, una misma materia prima</span>
                     </div>
 
                     <!-- RE-STUDIO -->
@@ -692,20 +857,22 @@
 
         <!-- Sección OBRADOR -->
         <div id="obrador" class="page-section">
-            <section style="background: var(--color-rosa);">
+            <section>
                 <div class="container-inner">
-                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
-                        <div style="flex: 1;">
-                            <img src="i/obrador.jpg" alt="Taller obrador" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);" loading="lazy">
-                        </div>
-                        <div style="flex: 1;">
-                            <h2 style="color: var(--color-marrom);">EL OBRADOR</h2>
-                            <p><em>Un espacio para crear con lana asturiana.</em></p>
-                            <p>Cardadoras, ruecas, telares... Un lugar donde vecinos, artesanos, diseñadores y curiosos pueden experimentar con la lana. Aprender técnicas tradicionales, crear sus propias piezas, compartir conocimiento y evitar que la falta de maquinaria limite el desarrollo de proyectos innovadores en el medio rural.</p>
-                            <p><strong>Un punto de encuentro para mantener vivo el oficio.</strong></p>
-                            <div class="btn-group">
-                                <a href="#" data-section="contacto" class="btn">Conocer el proyecto <i class="fas fa-tools" aria-hidden="true"></i></a>
-                                <a href="#" data-section="contacto" class="btn btn-light">Apuntarme a novedades <i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <div class="nosotros-grid">
+                        <div class="nosotros-block">
+                            <div class="image">
+                                <img src="i/obrador.jpg" alt="Taller obrador" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);" loading="lazy">
+                            </div>
+                            <div class="text">
+                                <h2 style="color: var(--color-marrom);">EL OBRADOR</h2>
+                                <p><em>Un espacio para crear con lana asturiana.</em></p>
+                                <p>Cardadoras, ruecas, telares... Un lugar donde vecinos, artesanos, diseñadores y curiosos pueden experimentar con la lana. Aprender técnicas tradicionales, crear sus propias piezas, compartir conocimiento y evitar que la falta de maquinaria limite el desarrollo de proyectos innovadores en el medio rural.</p>
+                                <p><strong>Un punto de encuentro para mantener vivo el oficio.</strong></p>
+                                <div class="btn-group">
+                                    <a href="#" data-section="contacto" class="btn">Conocer el proyecto <i class="fas fa-tools" aria-hidden="true"></i></a>
+                                    <a href="#" data-section="contacto" class="btn btn-light">Apuntarme a novedades <i class="fas fa-envelope" aria-hidden="true"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -741,61 +908,103 @@
                 </div>
             </section>
         </div>
-<!-- Sección CONTACTO – Web2Phone + Newsletter con envío AJAX -->
-<div id="contacto" class="page-section">
-    <section style="background: var(--color-marrom); color: var(--color-beige);">
-        <div class="container-inner">
-            <h2>CONTACTO Y REDES</h2>
-            <p><strong>Háblanos, pregúntanos, ven a conocernos.</strong></p>
-            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
-                <div style="flex: 1;">
-                    <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> <strong>Email:</strong> resignifq@gmail.com</p>
-                    <p><i class="fab fa-instagram contact-icon" aria-hidden="true"></i> <strong>Instagram:</strong> @re_signifq</p>
-                    <p><i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i> <strong>Dirección:</strong> Fuentes Cabadas, Concejo de Boal (Asturias)</p>
-                    <p>¿Quieres colaborar, encargar algo o simplemente charlar sobre lana asturiana? Estamos a un mensaje de distancia.</p>
+        <!-- Sección CONTACTO – Web2Phone + Newsletter con envío AJAX -->
+        <div id="contacto" class="page-section">
+        <section>
+            <div class="container-inner">
+                <h2>CONTACTO Y REDES</h2>
+                <p><strong>Háblanos, pregúntanos, ven a conocernos.</strong></p>
+                <div class="grid-2">
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> <strong>Email:</strong> resignifq@gmail.com</p>
+                        <p><i class="fab fa-instagram contact-icon" aria-hidden="true"></i> <strong>Instagram:</strong> @re_signifq</p>
+                        <p><i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i> <strong>Dirección:</strong> Fuentes Cabadas, Concejo de Boal (Asturias)</p>
+                        <p>¿Quieres colaborar, encargar algo o simplemente charlar sobre lana asturiana? Estamos a un mensaje de distancia.</p>
+                    </div>
+                    <div class="contact-form">
+                        <h2>Formulario rápido</h2>
+                        
+                        <!-- Web2Phone form (campos field, field_2, field_3) -->
+                        <form class="w2p-form" 
+                                data-web2phone="form"
+                                data-public-key="j4Wg3ULIewaEHaEXbFu71lmY"
+                                data-endpoint="https://web2phone.co.uk/api/v1/submit/">
+                            <div style="margin-bottom: 1rem;">
+                                <input name="field" type="text" placeholder="Tu nombre" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);">
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <input name="field_2" type="email" placeholder="Tu email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);" required>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <textarea name="field_3" rows="3" placeholder="Escribe tu mensaje..." style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-light">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                            <p data-w2p-output class="w2p-output" aria-live="polite" style="margin-top: 1rem;"></p>
+                        </form>
+                    </div>
                 </div>
-                <div style="flex: 1;" class="contact-form">
-                    <h3 style="color: var(--color-marrom);">Formulario rápido</h3>
-                    
-                    <!-- Web2Phone form (campos field, field_2, field_3) -->
-                    <form class="w2p-form" 
-                          data-web2phone="form"
-                          data-public-key="j4Wg3ULIewaEHaEXbFu71lmY"
-                          data-endpoint="https://web2phone.co.uk/api/v1/submit/">
-                        <div style="margin-bottom: 1rem;">
-                            <input name="field" type="text" placeholder="Tu nombre" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);">
-                        </div>
-                        <div style="margin-bottom: 1rem;">
-                            <input name="field_2" type="email" placeholder="Tu email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);" required>
-                        </div>
-                        <div style="margin-bottom: 1rem;">
-                            <textarea name="field_3" rows="3" placeholder="Escribe tu mensaje..." style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); background: var(--color-beige); font-family: var(--font-body);"></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="background-color: var(--color-verde); color: var(--color-beige); padding: 0.75rem 1.5rem; border: none; border-radius: 40px; cursor: pointer; font-weight: 600;">Enviar <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
-                        <p data-w2p-output class="w2p-output" aria-live="polite" style="margin-top: 1rem;"></p>
-                    </form>
-                </div>
-            </div>
 
-            <!-- NEWSLETTER con envío AJAX (sin abrir nueva página) -->
-            <div style="background: var(--color-beige); color: var(--color-verde); border-radius: var(--radius-md); padding: 2rem; margin-top: 2rem;">
-                <h3>NEWSLETTER</h3>
-                <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas.</p>
-                <p><strong>Además, al apuntarte recibirás gratis nuestra pequeña guía:</strong> <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
-                
-                <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                    <input type="email" id="newsletterEmail" name="fields[email]" placeholder="Tu email" style="flex: 1; min-width: 200px; padding: 0.8rem 1rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-sm); font-family: var(--font-body); background-color: var(--color-beige); color: var(--color-verde);" required>
-                    <button type="submit" class="btn btn-light" style="background-color: var(--color-mostarda); color: var(--color-verde); border: none; padding: 0.75rem 1.8rem; border-radius: 40px; font-weight: 600; cursor: pointer;">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
-                </form>
-                <div id="newsletterMessage" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
-                <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
+                <!-- NEWSLETTER con envío AJAX (sin abrir nueva página) -->
+                <div class="newsletter">
+                    <h3>NEWSLETTER</h3>
+                    <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas.</p>
+                    <p><strong>Además, al apuntarte recibirás gratis nuestra pequeña guía:</strong> <em>"Cinco formas de usar lana en tu huerto o jardín (aunque no tengas ovejas)"</em>.</p>
+                    
+                    <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                        <input type="email" id="newsletterEmail" name="fields[email]" placeholder="Tu email" style="flex: 1; min-width: 200px; padding: 0.8rem 1rem; border: 1px solid var(--color-mostarda); border-radius: var(--radius-lg); font-family: var(--font-body); background-color: var(--color-beige); color: var(--color-verde);" required>
+                        <button type="submit" class="btn btn-light">Apuntarme <i class="fas fa-check-circle" aria-hidden="true"></i></button>
+                    </form>
+                    <div id="newsletterMessage" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
+                    <p><small>Sin spam. Solo cosas que merezcan la pena. Prometido.</small></p>
+                </div>
             </div>
+        </section>
         </div>
-    </section>
+
+        <!-- Sección BLOG -->
+        <div id="blog" class="page-section">
+            <section>
+                <div class="container-inner">
+                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem;">BLOG</h2>
+                    <div style="background: var(--color-beige); border-radius: var(--radius-md); padding: 2rem; text-align: center;">
+                        <p style="font-size: 1.2rem;"><i class="fas fa-pen-fancy" style="margin-right: 0.5rem;"></i> Próximamente</p>
+                        <p>Estamos preparando contenidos sobre sostenibilidad, lana asturiana, agricultura regenerativa y artesanía. ¡No te lo pierdas!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="i/logo_Banner_bege.png" alt="Re-Signifq">
+        </div>
+        <p><em>Lana asturiana, de residuo a recurso.</em></p>
+        <div class="footer-social">
+            <a href="https://instagram.com/re_signifq" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/share/1C1bCj8a5U/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        </div>
+        <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:resignifq@gmail.com">resignifq@gmail.com</a> | <a href="https://instagram.com/resignifq" target="_blank" rel="noopener noreferrer" aria-label="Instagram"> <i class="fab fa-instagram" aria-hidden="true"></i> @re_signifq</a></p>
+        <p>© 2025 Re-Signifq. Hecho con calma en el occidente de Asturias.</p>
+        <div class="footer-logos">
+            <img src="i/Patrocinadores.png" alt="Colaboradores">
+        </div>
+    </footer>
 </div>
+
+<div class="scroll-top" aria-label="Volver arriba" role="button" tabindex="0"><i class="fas fa-arrow-up" aria-hidden="true"></i></div>
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/+34655097590?text=Hola%2C%20me%20interesa%20Re-Signifq" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <!-- Scripts -->
 <script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
+<!-- Newsletter Script -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2257749');
@@ -828,91 +1037,25 @@
         }
     });
 </script>
-        <!-- Sección BLOG -->
-        <div id="blog" class="page-section">
-            <section>
-                <div class="container-inner">
-                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem;">BLOG</h2>
-                    <div style="background: var(--color-beige); border-radius: var(--radius-md); padding: 2rem; text-align: center;">
-                        <p style="font-size: 1.2rem;"><i class="fas fa-pen-fancy" style="margin-right: 0.5rem;"></i> Próximamente</p>
-                        <p>Estamos preparando contenidos sobre sostenibilidad, lana asturiana, agricultura regenerativa y artesanía. ¡No te lo pierdas!</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
+<!-- NavScripts -->
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
 
-    <footer>
-        <div class="footer-logo">
-            <img src="i/logo_Banner_bege.png" alt="Re-Signifq">
-        </div>
-        <p><em>Lana asturiana, de residuo a recurso.</em></p>
-        <div class="footer-social">
-            <a href="https://instagram.com/re_signifq" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/share/1C1bCj8a5U/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-        </div>
-        <p>
-            <a href="#" data-section="inicio">Inicio</a> |
-            <a href="#nosotros" data-section="nosotros">Nosotros</a> |
-            <a href="#productos" data-section="productos">Productos</a> |
-            <a href="#obrador" data-section="obrador">Obrador</a> |
-            <a href="#preguntas" data-section="preguntas">Preguntas</a> |
-            <a href="#contact" data-section="contacto">Contacto</a> |
-            <a href="#blog" data-section="blog">Blog</a>
-        </p>
-        <p>© 2025 Re-Signifq. Hecho con calma en el occidente de Asturias.</p>
-        <p><i class="fas fa-envelope" aria-hidden="true"></i> resignifq@gmail.com | <i class="fab fa-instagram" aria-hidden="true"></i> @re_signifq</p>
-        <div class="footer-logos">
-            <img src="i/Patrocinadores.png" alt="Colaboradores">
-        </div>
-    </footer>
-</div>
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
 
-<div class="scroll-top" aria-label="Volver arriba" role="button" tabindex="0"><i class="fas fa-arrow-up" aria-hidden="true"></i></div>
-<!-- Botón flotante de WhatsApp -->
-<a href="https://wa.me/+34655097590?text=Hola%2C%20me%20interesa%20Re-Signifq" 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<style>
-    /* Botón flotante de WhatsApp */
-    .whatsapp-float {
-        position: fixed;
-        bottom: 80px;      /* por encima del botón de scroll (que está a 2rem ≈ 32px) */
-        right: 2rem;
-        background-color: #25D366;
-        color: white;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        box-shadow: var(--shadow-md);
-        transition: var(--transition);
-        z-index: 98;       /* ligeramente por debajo del scroll-top (z-index 99) para que quede debajo al hacer clic? pero ambos visibles */
-        text-decoration: none;
-    }
-    .whatsapp-float:hover {
-        transform: scale(1.1);
-        background-color: #128C7E;
-    }
-    /* Ajuste para móviles */
-    @media (max-width: 768px) {
-        .whatsapp-float {
-            bottom: 70px;
-            right: 1rem;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-        }
-    }
-</style>
+    /* fechar menu ao clicar em link */
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+</script>
+<!-- Section Scripts -->
 <script>
     function showSection(sectionId) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
@@ -985,7 +1128,7 @@
     animateNumbers();
     showSection('inicio');
 </script>
-
+<!-- Schema.org Markup -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -1011,6 +1154,7 @@
     ]
 }
 </script>
+<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -1024,5 +1168,6 @@
     ]
 }
 </script>
+
 </body>
 </html>
