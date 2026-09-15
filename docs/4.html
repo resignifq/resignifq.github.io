@@ -636,21 +636,28 @@
             padding: 2rem 0;
             margin-top: 2rem;
         }
-        /* ===== ESTILOS PARA LA TIENDA ECWID INTEGRADA ===== */
+        /* ===== TIENDA (iframe full-width) ===== */
         #productos {
             background: var(--color-beige);
         }
-        #my-store-142212751 {
-            min-height: 600px;
+        .store-wrapper {
             width: 100%;
-            background: transparent;
+            max-width: 100%;
+            margin: 0 auto;
         }
-        /* Ajustes de estilo para que la tienda Ecwid se integre visualmente */
-        #my-store-142212751 .ec-storefront {
-            font-family: var(--font-body) !important;
+        .store-wrapper iframe {
+            width: 100%;
+            min-height: 3000px;
+            border: none;
+            display: block;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
         }
-        #my-store-142212751 .ecwid-productBrowser {
-            font-family: var(--font-body) !important;
+        @media (max-width: 768px) {
+            .store-wrapper iframe {
+                min-height: 2500px;
+            }
         }
     </style>
 </head>
@@ -679,7 +686,6 @@
         <nav class="menu" aria-label="Menú principal">
             <a href="#" data-section="inicio">INICIO</a>
             <a href="#nosotros" data-section="nosotros">NOSOTROS</a>
-            <!-- TIENDA ahora es un enlace interno que abre la sección con la tienda Ecwid integrada -->
             <a href="#productos" data-section="productos">TIENDA</a>
             <a href="#obrador" data-section="obrador">OBRADOR</a>
             <a href="#preguntas" data-section="preguntas">PREGUNTAS</a>
@@ -800,20 +806,17 @@
             </section>
         </div>
 
-        <!-- ===== Sección TIENDA (Ecwid integrada) ===== -->
+        <!-- ===== Sección TIENDA (Ecwid dentro de un iframe) ===== -->
         <div id="productos" class="page-section">
             <section>
-                <div class="container-inner">
-                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">TIENDA</h2>
-
-                    <!-- Ecwid Store embedded -->
-                    <div id="my-store-142212751"></div>
-                    <div>
-                        <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15" charset="utf-8"></script>
-                        <script type="text/javascript">
-                            xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-142212751");
-                        </script>
-                    </div>
+                <div class="store-wrapper">
+                    <iframe
+                        src="https://store142212751.ecwid.com"
+                        title="Tienda Re-Signifq"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </section>
         </div>
