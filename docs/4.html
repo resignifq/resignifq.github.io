@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -648,6 +647,11 @@
             padding: 2rem 0;
             margin-top: 2rem;
         }
+        /* Estilos para la tienda Ecwid */
+        #my-store-142212751 {
+            min-height: 400px;
+            padding: 1rem 0;
+        }
     </style>
 </head>
 <body>
@@ -678,7 +682,7 @@
         <nav class="menu" aria-label="Menú principal">
             <a href="#" data-section="inicio">INICIO</a>
             <a href="#nosotros" data-section="nosotros">NOSOTROS</a>
-            <a href="#productos" data-section="productos">PRODUCTOS</a>
+            <a href="#productos" data-section="productos">TIENDA</a>
             <a href="#obrador" data-section="obrador">OBRADOR</a>
             <a href="#preguntas" data-section="preguntas">PREGUNTAS</a>
             <a href="#contact" data-section="contacto">CONTACTO</a>
@@ -703,7 +707,7 @@
                         <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Transformamos la lana que se desecha en Asturias en productos sostenibles para tu hogar, tu huerta y tu comunidad.</strong></p>
                         <p>Un proyecto textil y social nacido en Fuentes Cabadas, concejo de Boal, para devolver el valor a la lana asturiana. Cada año, toneladas de lana local terminan en vertederos. Nosotros trabajamos con ganaderos, artesanas y agricultores para convertir ese problema en una oportunidad: productos naturales, bellos y útiles que cuidan la tierra y mantienen vivo el oficio.</p>
                         <div class="btn-group">
-                            <a class="btn" data-section="productos">Conoce nuestros productos <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="btn" data-section="productos">Visita nuestra tienda <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                             <a href="https://instagram.com/re_signifq" target="_blank" class="btn btn-light" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Síguenos en Instagram</a>
                         </div>
                     </div>
@@ -799,57 +803,19 @@
             </section>
         </div>
 
-        <!-- Sección PRODUCTOS -->
+        <!-- Sección TIENDA (Ecwid) -->
         <div id="productos" class="page-section">
             <section>
                 <div class="container-inner">
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <span class="badge badge-pill">Tres líneas, una misma materia prima</span>
-                    </div>
-
-                    <!-- RE-STUDIO -->
-                    <div class="card">
-                        <img class="card-image" src="i/luminarias.jpeg" alt="Lámpara de lana de Re-Studio" loading="lazy">
-                        <div class="card-content">
-                            <div style="overflow: auto;">
-                                <img src="i/avatar_ovelha_pink.png" alt="Re_signifiq Studio" class="avatar-logo">
-                                <div class="product-description">
-                                    <p><em>Diseño y decoración.</em></p>
-                                    <p>Alfombras, lámparas, paneles acústicos y objetos textiles donde el diseño contemporáneo se encuentra con las técnicas tradicionales sumados a alma Brasileira en suelo Asturiano.</p>
-                                    <p><strong>Piezas únicas o series limitadas. Hechas a mano en Asturias.</strong></p>
-                                </div>
-                            </div>
-                            <div class="btn-group" style="margin-top: 1rem;">
-                                <a href="#" data-section="contacto" class="btn">Ver colección <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                                <a href="#" data-section="contacto" class="btn btn-light">Consultar disponibilidad <i class="fas fa-calendar-alt" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- OVEYA VERDE -->
-                    <div class="card">
-                        <img class="card-image" src="i/Manta_de_lana.jpeg" alt="Mantillo de lana Oveya Verde" loading="lazy">
-                        <div class="card-content">
-                            <div style="overflow: auto;">
-                                <img src="i/avatar_ovelha_brown.png" alt="Re_signifiq Oveya Verde" class="avatar-logo">
-                                <div class="product-description">
-                                    <p><em>Soluciones naturales para el campo y el jardín.</em></p>
-                                    <p><strong>Pellets de lana.</strong> Fertilizante de liberación lenta. Aportan nitrógeno, mejoran la estructura del suelo y retienen humedad.<br>
-                                    <strong>Mantilla de lana.</strong> Acolchado natural que sustituye al plástico. Protege del frío, regula humedad, ahuyenta babosas y se convierte en abono.<br>
-                                    <strong>Maseta de lana.</strong> Semillero biodegradable. Se planta directamente, protege la raíz y alimenta el suelo.</p>
-                                    <p><strong>100% natural. 100% biodegradable. 100% lana recuperada.</strong></p>
-                                </div>
-                            </div>
-                            <div class="btn-group" style="margin-top: 1rem;">
-                                <a href="#" data-section="contacto" class="btn">Saber más <i class="fas fa-leaf" aria-hidden="true"></i></a>
-                                <a href="#" data-section="contacto" class="btn btn-light">Avisarme cuando estén listos <i class="fas fa-bell" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Banner EM BREVE con imagen pulsante (sin bordes) -->
-                    <div class="blinking-banner">
-                        <img src="i/en_breve_novo.png" alt="Próximamente - Productos disponibles pronto">
+                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">TIENDA</h2>
+                    
+                    <!-- Ecwid Store -->
+                    <div id="my-store-142212751"></div>
+                    <div>
+                        <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15" charset="utf-8"></script>
+                        <script type="text/javascript">
+                            xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-142212751");
+                        </script>
                     </div>
                 </div>
             </section>
@@ -908,6 +874,7 @@
                 </div>
             </section>
         </div>
+
         <!-- Sección CONTACTO – Web2Phone + Newsletter con envío AJAX -->
         <div id="contacto" class="page-section">
         <section>
