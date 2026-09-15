@@ -638,13 +638,13 @@
         /* ===== TIENDA ECWID ===== */
         #productos {
             background: var(--color-beige);
+            min-height: 800px;
         }
         #my-store-142212751 {
             width: 100%;
             min-height: 600px;
             background: transparent;
         }
-        /* Ajustes para integración visual de la tienda Ecwid */
         #my-store-142212751 .ec-storefront,
         #my-store-142212751 .ecwid-productBrowser {
             font-family: var(--font-body) !important;
@@ -796,20 +796,15 @@
             </section>
         </div>
 
-        <!-- ===== Sección TIENDA (Ecwid integrada con código oficial) ===== -->
+        <!-- ===== Sección TIENDA (Ecwid integrada) ===== -->
         <div id="productos" class="page-section">
             <section>
                 <div class="container-inner">
                     <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">TIENDA</h2>
 
-                    <!-- Código oficial de integración de Ecwid -->
+                    <!-- Código oficial de Ecwid - se cargará cuando la sección se muestre -->
                     <div id="my-store-142212751"></div>
-                    <div>
-                        <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15" charset="utf-8"></script>
-                        <script type="text/javascript">
-                            xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-142212751");
-                        </script>
-                    </div>
+                    <div id="ecwid-script-container"></div>
                 </div>
             </section>
         </div>
@@ -1009,6 +1004,41 @@
     });
 </script>
 <script>
+    // ===== CARREGAMENTO DINÂMICO DA LOJA ECWID =====
+    let ecwidLoaded = false;
+
+    function loadEcwidStore() {
+        if (ecwidLoaded) {
+            // Se já foi carregado, apenas força o resize para recalcular o layout
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 200);
+            return;
+        }
+
+        ecwidLoaded = true;
+
+        // 1. Carrega o script principal da Ecwid
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.charset = 'utf-8';
+        script.setAttribute('data-cfasync', 'false');
+        script.src = 'https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15';
+        script.onload = function() {
+            // 2. Após o carregamento do script, chama xProductBrowser
+            if (typeof xProductBrowser === 'function') {
+                xProductBrowser(
+                    "categoriesPerRow=3",
+                    "views=grid(20,3) list(60) table(60)",
+                    "categoryView=grid",
+                    "searchView=list",
+                    "id=my-store-142212751"
+                );
+            }
+        };
+        document.getElementById('ecwid-script-container').appendChild(script);
+    }
+
     function showSection(sectionId) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
         const activeSection = document.getElementById(sectionId);
@@ -1019,11 +1049,13 @@
         });
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Forzar a Ecwid a redimensionar quando a seção da loja é exibida
-        if (sectionId === 'productos' && window.ecwid) {
+        // Se a seção for a TIENDA, carrega a loja Ecwid
+        if (sectionId === 'productos') {
+            loadEcwidStore();
+            // Força o recálculo do layout após um pequeno delay
             setTimeout(() => {
                 window.dispatchEvent(new Event('resize'));
-            }, 200);
+            }, 500);
         }
     }
 
@@ -1085,6 +1117,8 @@
     }
 
     animateNumbers();
+
+    // Inicia na seção INICIO. A loja só será carregada quando o usuário clicar em TIENDA.
     showSection('inicio');
 </script>
 <script type="application/ld+json">
