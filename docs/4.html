@@ -746,6 +746,83 @@
         #my-store-142212751 .ecwid-productBrowser-productsGrid-cell-image {
             border-radius: 0 !important;
         }
+
+        /* ===== Sección "Nuestros compromisos" (añadida manualmente) ===== */
+        .store-commitments {
+            background: #ffffff;
+            padding: 80px 20px 100px;
+            font-family: var(--font-store);
+            border-top: 1px solid #f0f0f0;
+        }
+        .store-commitments-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .store-commitments h2 {
+            font-family: var(--font-store);
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 0 0 24px 0;
+            letter-spacing: -0.01em;
+        }
+        .store-commitments > .store-commitments-inner > p {
+            font-family: var(--font-store);
+            font-size: 17px;
+            line-height: 1.7;
+            color: #4a4a4a;
+            text-align: center;
+            margin: 0 0 48px 0;
+        }
+        .commitment-item {
+            margin-bottom: 40px;
+        }
+        .commitment-item h3 {
+            font-family: var(--font-store);
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.01em;
+        }
+        .commitment-item p {
+            font-family: var(--font-store);
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .store-guide {
+            background: #fafafa;
+            padding: 40px 20px;
+            font-family: var(--font-store);
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+        }
+        .store-guide-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .store-guide h3 {
+            font-family: var(--font-store);
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 12px 0;
+        }
+        .store-guide p {
+            font-family: var(--font-store);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .store-hero { padding: 60px 20px 40px; }
+            .store-catalog { padding: 40px 20px 60px; }
+            .store-commitments { padding: 60px 20px 80px; }
+        }
     </style>
 </head>
 <body>
@@ -892,9 +969,9 @@
             </section>
         </div>
 
-        <!-- ===== Sección TIENDA (Ecwid integrada — CÓDIGO EXACTO) ===== -->
+        <!-- ===== Sección TIENDA (Ecwid + contenido editorial) ===== -->
         <div id="productos" class="page-section">
-            <!-- Hero da loja (como no Instant Site) -->
+            <!-- Hero da loja -->
             <div class="store-hero">
                 <div class="store-hero-inner">
                     <h1>Tienda Re-Signifq</h1>
@@ -903,7 +980,7 @@
                 </div>
             </div>
 
-            <!-- Catálogo de produtos (Ecwid) — CÓDIGO EXATO DO USUÁRIO -->
+            <!-- Catálogo de produtos (Ecwid) -->
             <div class="store-catalog">
                 <div class="store-catalog-inner">
                     <h2>Productos</h2>
@@ -912,6 +989,37 @@
                         <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15" charset="utf-8"></script>
                         <script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-142212751");</script>
                     </div>
+                </div>
+            </div>
+
+            <!-- Sección "Nuestros compromisos" (texto añadido manualmente) -->
+            <div class="store-commitments">
+                <div class="store-commitments-inner">
+                    <h2>Nuestros compromisos</h2>
+                    <p>En Re-Signifq, cada pieza nace de una combinación de diseño, artesanía y respeto por los materiales. Trabajamos con la intención de crear objetos duraderos, cuidando cada etapa del proceso y buscando siempre un equilibrio entre calidad, belleza, sostenibilidad e innovación.</p>
+
+                    <div class="commitment-item">
+                        <h3>Materiales de calidad</h3>
+                        <p>Seleccionamos cuidadosamente fibras naturales y otros materiales que aportan belleza, resistencia y durabilidad. Cada material se elige por sus características y por su capacidad de formar parte de piezas pensadas para acompañarnos durante mucho tiempo.</p>
+                    </div>
+
+                    <div class="commitment-item">
+                        <h3>Transparencia y trazabilidad</h3>
+                        <p>Creemos en la importancia de conocer el origen de aquello que consumimos. Por eso, cada pieza Re-Signifq incluye información sobre su composición y sus materiales, para que puedas conocer mejor qué hay detrás de cada creación.</p>
+                    </div>
+
+                    <div class="commitment-item">
+                        <h3>Embalaje sostenible y cuidado de las piezas</h3>
+                        <p>Preparamos cada pedido con cuidado para que llegue en perfectas condiciones a su nuevo hogar. Utilizamos embalajes de cartón natural y evitamos, siempre que es posible, materiales innecesarios. Cada pieza va acompañada de una Guía de Cuidados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección "Guía de Cuidados" -->
+            <div class="store-guide">
+                <div class="store-guide-inner">
+                    <h3>Guía de Cuidados</h3>
+                    <p>Cada pieza Re-Signifq incluye una Guía de Cuidados para que puedas disfrutarla durante mucho tiempo. En ella encontrarás consejos prácticos sobre cómo limpiar, conservar y cuidar tus productos, prolongando su vida útil y manteniendo su belleza original.</p>
                 </div>
             </div>
         </div>
@@ -1121,7 +1229,6 @@
         });
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Se for a seção TIENDA, força o recálculo do layout da Ecwid
         if (sectionId === 'productos') {
             setTimeout(() => {
                 window.dispatchEvent(new Event('resize'));
