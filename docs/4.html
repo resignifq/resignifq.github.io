@@ -42,7 +42,6 @@
             --transition: all 0.25s ease;
             --font-body: 'Inter', system-ui, -apple-system, sans-serif;
             --font-heading: 'Khand', sans-serif;
-            /* Fonte do Instant Site da Ecwid */
             --font-store: 'DM Sans', system-ui, "Segoe UI", Roboto, Arial, sans-serif;
         }
         html, body {
@@ -639,7 +638,7 @@
         }
 
         /* ================================================
-           TIENDA — Réplica do Instant Site da Ecwid
+           TIENDA — Estilo Instant Site da Ecwid
            ================================================ */
         #productos {
             background: #ffffff;
@@ -714,23 +713,19 @@
             letter-spacing: -0.01em;
         }
 
-        /* Ajustes para integrar a loja Ecwid ao estilo do Instant Site */
         #my-store-142212751 {
             width: 100%;
             min-height: 600px;
             background: #ffffff;
         }
-        /* Forçar fonte DM Sans em todos os elementos da loja */
         #my-store-142212751,
         #my-store-142212751 * {
             font-family: var(--font-store) !important;
         }
-        /* Cantos retos (0px) em todos os elementos da loja */
         #my-store-142212751 .ecwid-productBrowser,
         #my-store-142212751 .ecwid-productBrowser * {
             border-radius: 0 !important;
         }
-        /* Botões com fundo escuro (como no Instant Site) */
         #my-store-142212751 .ecwid-btn--primary,
         #my-store-142212751 .ecwid-productBrowser-cart-checkoutButton,
         #my-store-142212751 .ecwid-productBrowser-product-details-buy-now,
@@ -740,13 +735,11 @@
             font-weight: 500 !important;
             letter-spacing: 0.01em !important;
         }
-        /* Cabeçalho da loja sem sombras arredondadas */
         #my-store-142212751 .ecwid-productBrowser-head,
         #my-store-142212751 .ecwid-productBrowser-productsGrid,
         #my-store-142212751 .ecwid-productBrowser-category {
             border-radius: 0 !important;
         }
-        /* Ajuste de espaçamento interno */
         #my-store-142212751 .ecwid-productBrowser-productsGrid-cell {
             padding: 12px !important;
         }
@@ -899,7 +892,7 @@
             </section>
         </div>
 
-        <!-- ===== Sección TIENDA (estilo Instant Site + Ecwid) ===== -->
+        <!-- ===== Sección TIENDA (Ecwid integrada — CÓDIGO EXACTO) ===== -->
         <div id="productos" class="page-section">
             <!-- Hero da loja (como no Instant Site) -->
             <div class="store-hero">
@@ -910,12 +903,15 @@
                 </div>
             </div>
 
-            <!-- Catálogo de produtos (Ecwid) -->
+            <!-- Catálogo de produtos (Ecwid) — CÓDIGO EXATO DO USUÁRIO -->
             <div class="store-catalog">
                 <div class="store-catalog-inner">
                     <h2>Productos</h2>
                     <div id="my-store-142212751"></div>
-                    <div id="ecwid-script-container"></div>
+                    <div>
+                        <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15" charset="utf-8"></script>
+                        <script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-142212751");</script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1115,39 +1111,6 @@
     });
 </script>
 <script>
-    // ===== CARREGAMENTO DINÂMICO DA LOJA ECWID =====
-    let ecwidLoaded = false;
-
-    function loadEcwidStore() {
-        if (ecwidLoaded) {
-            // Se já foi carregado, apenas força o resize para recalcular o layout
-            setTimeout(() => {
-                window.dispatchEvent(new Event('resize'));
-            }, 200);
-            return;
-        }
-
-        ecwidLoaded = true;
-
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.charset = 'utf-8';
-        script.setAttribute('data-cfasync', 'false');
-        script.src = 'https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15';
-        script.onload = function() {
-            if (typeof xProductBrowser === 'function') {
-                xProductBrowser(
-                    "categoriesPerRow=3",
-                    "views=grid(20,3) list(60) table(60)",
-                    "categoryView=grid",
-                    "searchView=list",
-                    "id=my-store-142212751"
-                );
-            }
-        };
-        document.getElementById('ecwid-script-container').appendChild(script);
-    }
-
     function showSection(sectionId) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
         const activeSection = document.getElementById(sectionId);
@@ -1158,11 +1121,11 @@
         });
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
+        // Se for a seção TIENDA, força o recálculo do layout da Ecwid
         if (sectionId === 'productos') {
-            loadEcwidStore();
             setTimeout(() => {
                 window.dispatchEvent(new Event('resize'));
-            }, 500);
+            }, 300);
         }
     }
 
@@ -1237,7 +1200,6 @@
     "address": {
         "@type": "PostalAddress",
         "addressLocality": "Boal",
-        "@type": "PostalAddress",
         "addressRegion": "Asturias",
         "addressCountry": "ES"
     },
