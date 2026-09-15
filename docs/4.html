@@ -636,6 +636,22 @@
             padding: 2rem 0;
             margin-top: 2rem;
         }
+        /* ===== ESTILOS PARA LA TIENDA ECWID INTEGRADA ===== */
+        #productos {
+            background: var(--color-beige);
+        }
+        #my-store-142212751 {
+            min-height: 600px;
+            width: 100%;
+            background: transparent;
+        }
+        /* Ajustes de estilo para que la tienda Ecwid se integre visualmente */
+        #my-store-142212751 .ec-storefront {
+            font-family: var(--font-body) !important;
+        }
+        #my-store-142212751 .ecwid-productBrowser {
+            font-family: var(--font-body) !important;
+        }
     </style>
 </head>
 <body>
@@ -663,8 +679,8 @@
         <nav class="menu" aria-label="Menú principal">
             <a href="#" data-section="inicio">INICIO</a>
             <a href="#nosotros" data-section="nosotros">NOSOTROS</a>
-            <!-- TIENDA ahora es un enlace externo a la tienda Ecwid -->
-            <a href="https://store142212751.ecwid.com" target="_blank" rel="noopener noreferrer">TIENDA</a>
+            <!-- TIENDA ahora es un enlace interno que abre la sección con la tienda Ecwid integrada -->
+            <a href="#productos" data-section="productos">TIENDA</a>
             <a href="#obrador" data-section="obrador">OBRADOR</a>
             <a href="#preguntas" data-section="preguntas">PREGUNTAS</a>
             <a href="#contact" data-section="contacto">CONTACTO</a>
@@ -688,8 +704,7 @@
                         <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Transformamos la lana que se desecha en Asturias en productos sostenibles para tu hogar, tu huerta y tu comunidad.</strong></p>
                         <p>Un proyecto textil y social nacido en Fuentes Cabadas, concejo de Boal, para devolver el valor a la lana asturiana. Cada año, toneladas de lana local terminan en vertederos. Nosotros trabajamos con ganaderos, artesanas y agricultores para convertir ese problema en una oportunidad: productos naturales, bellos y útiles que cuidan la tierra y mantienen vivo el oficio.</p>
                         <div class="btn-group">
-                            <!-- Botón ahora apunta a la tienda externa -->
-                            <a class="btn" href="https://store142212751.ecwid.com" target="_blank" rel="noopener noreferrer">Visita nuestra tienda <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <a class="btn" data-section="productos">Visita nuestra tienda <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                             <a href="https://instagram.com/re_signifq" target="_blank" class="btn btn-light" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Síguenos en Instagram</a>
                         </div>
                     </div>
@@ -780,6 +795,24 @@
                                 <p style="margin-top: 1rem;">Cuando la lana se <strong>re-significa</strong>, también lo hace el territorio.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ===== Sección TIENDA (Ecwid integrada) ===== -->
+        <div id="productos" class="page-section">
+            <section>
+                <div class="container-inner">
+                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">TIENDA</h2>
+
+                    <!-- Ecwid Store embedded -->
+                    <div id="my-store-142212751"></div>
+                    <div>
+                        <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15" charset="utf-8"></script>
+                        <script type="text/javascript">
+                            xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-142212751");
+                        </script>
                     </div>
                 </div>
             </section>
