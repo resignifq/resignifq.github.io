@@ -24,7 +24,7 @@
     <meta name="twitter:image" content="i/woman-feeding-sheep.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐑</text></svg>">
     <style>
@@ -42,6 +42,8 @@
             --transition: all 0.25s ease;
             --font-body: 'Inter', system-ui, -apple-system, sans-serif;
             --font-heading: 'Khand', sans-serif;
+            /* Fonte do Instant Site da Ecwid */
+            --font-store: 'DM Sans', system-ui, "Segoe UI", Roboto, Arial, sans-serif;
         }
         html, body {
             overflow-x: hidden;
@@ -635,19 +637,121 @@
             padding: 2rem 0;
             margin-top: 2rem;
         }
-        /* ===== TIENDA ECWID ===== */
+
+        /* ================================================
+           TIENDA — Réplica do Instant Site da Ecwid
+           ================================================ */
         #productos {
-            background: var(--color-beige);
-            min-height: 800px;
+            background: #ffffff;
+            padding: 0;
+            min-height: 100vh;
         }
+        .store-hero {
+            background: #ffffff;
+            padding: 80px 20px 60px;
+            text-align: center;
+            font-family: var(--font-store);
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .store-hero-inner {
+            max-width: 1128px;
+            margin: 0 auto;
+        }
+        .store-hero h1 {
+            font-family: var(--font-store);
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            margin: 0 0 20px 0;
+        }
+        .store-hero p {
+            font-family: var(--font-store);
+            font-size: clamp(16px, 2vw, 18px);
+            font-weight: 400;
+            line-height: 1.5;
+            color: #4a4a4a;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .store-hero .store-cta {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 14px 32px;
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: var(--font-store);
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .store-hero .store-cta:hover {
+            background: #333333;
+            transform: translateY(-1px);
+        }
+
+        .store-catalog {
+            background: #ffffff;
+            padding: 60px 20px 100px;
+            font-family: var(--font-store);
+        }
+        .store-catalog-inner {
+            max-width: 1128px;
+            margin: 0 auto;
+        }
+        .store-catalog h2 {
+            font-family: var(--font-store);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 0 0 40px 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* Ajustes para integrar a loja Ecwid ao estilo do Instant Site */
         #my-store-142212751 {
             width: 100%;
             min-height: 600px;
-            background: transparent;
+            background: #ffffff;
         }
-        #my-store-142212751 .ec-storefront,
-        #my-store-142212751 .ecwid-productBrowser {
-            font-family: var(--font-body) !important;
+        /* Forçar fonte DM Sans em todos os elementos da loja */
+        #my-store-142212751,
+        #my-store-142212751 * {
+            font-family: var(--font-store) !important;
+        }
+        /* Cantos retos (0px) em todos os elementos da loja */
+        #my-store-142212751 .ecwid-productBrowser,
+        #my-store-142212751 .ecwid-productBrowser * {
+            border-radius: 0 !important;
+        }
+        /* Botões com fundo escuro (como no Instant Site) */
+        #my-store-142212751 .ecwid-btn--primary,
+        #my-store-142212751 .ecwid-productBrowser-cart-checkoutButton,
+        #my-store-142212751 .ecwid-productBrowser-product-details-buy-now,
+        #my-store-142212751 .ecwid-productBrowser-product-details-add-to-cart {
+            border-radius: 0 !important;
+            font-family: var(--font-store) !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.01em !important;
+        }
+        /* Cabeçalho da loja sem sombras arredondadas */
+        #my-store-142212751 .ecwid-productBrowser-head,
+        #my-store-142212751 .ecwid-productBrowser-productsGrid,
+        #my-store-142212751 .ecwid-productBrowser-category {
+            border-radius: 0 !important;
+        }
+        /* Ajuste de espaçamento interno */
+        #my-store-142212751 .ecwid-productBrowser-productsGrid-cell {
+            padding: 12px !important;
+        }
+        #my-store-142212751 .ecwid-productBrowser-productsGrid-cell-image {
+            border-radius: 0 !important;
         }
     </style>
 </head>
@@ -663,8 +767,7 @@
 <div class="container">
     <header class="header">
         <a href="#" data-section="inicio" class="logo-link" aria-label="Ir a la sección de inicio">
-            <div class="logo" role="img" aria-label="Logotipo de Re-Signifq" tabindex="0">
-            </div>
+            <div class="logo" role="img" aria-label="Logotipo de Re-Signifq" tabindex="0"></div>
         </a>
         
         <button class="menu-toggle" aria-label="Abrir menu">
@@ -796,17 +899,25 @@
             </section>
         </div>
 
-        <!-- ===== Sección TIENDA (Ecwid integrada) ===== -->
+        <!-- ===== Sección TIENDA (estilo Instant Site + Ecwid) ===== -->
         <div id="productos" class="page-section">
-            <section>
-                <div class="container-inner">
-                    <h2 style="color: var(--color-marrom); margin-bottom: 2rem; text-align: center;">TIENDA</h2>
+            <!-- Hero da loja (como no Instant Site) -->
+            <div class="store-hero">
+                <div class="store-hero-inner">
+                    <h1>Tienda Re-Signifq</h1>
+                    <p>Productos sostenibles hechos con lana asturiana recuperada. Diseño, huerta y tradición en una sola tienda.</p>
+                    <a href="#my-store-142212751" class="store-cta">Ver productos</a>
+                </div>
+            </div>
 
-                    <!-- Código oficial de Ecwid - se cargará cuando la sección se muestre -->
+            <!-- Catálogo de produtos (Ecwid) -->
+            <div class="store-catalog">
+                <div class="store-catalog-inner">
+                    <h2>Productos</h2>
                     <div id="my-store-142212751"></div>
                     <div id="ecwid-script-container"></div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <!-- Sección OBRADOR -->
@@ -1018,14 +1129,12 @@
 
         ecwidLoaded = true;
 
-        // 1. Carrega o script principal da Ecwid
         const script = document.createElement('script');
         script.type = 'text/javascript';
         script.charset = 'utf-8';
         script.setAttribute('data-cfasync', 'false');
         script.src = 'https://app.ecwid.com/script.js?142212751&data_platform=code&data_date=2026-09-15';
         script.onload = function() {
-            // 2. Após o carregamento do script, chama xProductBrowser
             if (typeof xProductBrowser === 'function') {
                 xProductBrowser(
                     "categoriesPerRow=3",
@@ -1049,10 +1158,8 @@
         });
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // Se a seção for a TIENDA, carrega a loja Ecwid
         if (sectionId === 'productos') {
             loadEcwidStore();
-            // Força o recálculo do layout após um pequeno delay
             setTimeout(() => {
                 window.dispatchEvent(new Event('resize'));
             }, 500);
@@ -1117,8 +1224,6 @@
     }
 
     animateNumbers();
-
-    // Inicia na seção INICIO. A loja só será carregada quando o usuário clicar em TIENDA.
     showSection('inicio');
 </script>
 <script type="application/ld+json">
@@ -1132,6 +1237,7 @@
     "address": {
         "@type": "PostalAddress",
         "addressLocality": "Boal",
+        "@type": "PostalAddress",
         "addressRegion": "Asturias",
         "addressCountry": "ES"
     },
