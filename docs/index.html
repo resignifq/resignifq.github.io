@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -73,7 +72,6 @@
             background-color: var(--color-beige);
             box-shadow: var(--shadow-md);
         }
-        /* Full bleed image */
         .full-bleed {
             width: 100%;
             margin-inline: calc(50% - 50vw);
@@ -84,7 +82,6 @@
             height: auto;
             display: block;
         }
-        /* HEADER BASE */
         .header {
             display: flex;
             justify-content: space-between;
@@ -97,7 +94,6 @@
             backdrop-filter: blur(6px);
         }
 
-        /* HAMBURGER */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -115,13 +111,11 @@
             transition: 0.3s;
         }
 
-        /* MENU DESKTOP */
         .menu {
             display: flex;
             gap: 2rem;
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
 
             .menu-toggle {
@@ -150,7 +144,6 @@
                 right: 0;
             }
 
-            /* animação hamburger -> X */
             .menu-toggle.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
             }
@@ -337,7 +330,6 @@
             margin-bottom: 0.75rem;
             color: var(--color-marrom);
         }
-        /* Estilos para logos tipo avatar */
         .avatar-logo {
             width: 80px;
             height: 80px;
@@ -353,7 +345,6 @@
         .product-description {
             overflow: hidden;
         }
-        /* Banner pulsante sin bordes ni fondo */
         .blinking-banner {
             text-align: center;
             margin-top: 3rem;
@@ -601,10 +592,9 @@
             margin-bottom: 1rem;
             color: var(--color-verde);
         }
-        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
-            bottom: 88px;      /* por encima del botón de scroll (que está a 2rem ≈ 32px) */
+            bottom: 88px;
             right: 2rem;
             background-color: #25D366;
             color: white;
@@ -617,14 +607,13 @@
             font-size: 2rem;
             box-shadow: var(--shadow-md);
             transition: var(--transition);
-            z-index: 98;       /* ligeramente por debajo del scroll-top (z-index 99) para que quede debajo al hacer clic? pero ambos visibles */
+            z-index: 98;
             text-decoration: none;
         }
         .whatsapp-float:hover {
             transform: scale(1.1);
             background-color: #128C7E;
         }
-        /* Ajuste para móviles */
         @media (max-width: 768px) {
             .whatsapp-float {
                 bottom: 90px;
@@ -632,7 +621,6 @@
                 font-size: 1.5rem;
             }
         }
-        /* Estilos para el formulario de contacto */
         .contact-form .w2p-form button[type="submit"], .w2p-form input[type="submit"], form[data-web2phone="form"] button[type="submit"], form[data-web2phone="form"] input[type="submit"] {
             background-color: var(--color-verde) !important;
             color: var(--color-beige) !important;
@@ -663,26 +651,23 @@
     <header class="header">
         <a href="#" data-section="inicio" class="logo-link" aria-label="Ir a la sección de inicio">
             <div class="logo" role="img" aria-label="Logotipo de Re-Signifq" tabindex="0">
-                <!-- <img src="i/logo_Banner_bege.png" alt="Re-Signifq - Logotipo"> -->
             </div>
         </a>
         
-        <!-- Botão hamburger -->
         <button class="menu-toggle" aria-label="Abrir menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <!-- Menu -->
         <nav class="menu" aria-label="Menú principal">
             <a href="#" data-section="inicio">INICIO</a>
             <a href="#nosotros" data-section="nosotros">NOSOTROS</a>
-            <a href="#productos" data-section="productos">PRODUCTOS</a>
+            <!-- TIENDA ahora es un enlace externo a la tienda Ecwid -->
+            <a href="https://store142212751.ecwid.com" target="_blank" rel="noopener noreferrer">TIENDA</a>
             <a href="#obrador" data-section="obrador">OBRADOR</a>
             <a href="#preguntas" data-section="preguntas">PREGUNTAS</a>
             <a href="#contact" data-section="contacto">CONTACTO</a>
-            <!-- <a href="#blog" data-section="blog">BLOG</a> -->
         </nav>
     </header>
 
@@ -703,7 +688,8 @@
                         <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Transformamos la lana que se desecha en Asturias en productos sostenibles para tu hogar, tu huerta y tu comunidad.</strong></p>
                         <p>Un proyecto textil y social nacido en Fuentes Cabadas, concejo de Boal, para devolver el valor a la lana asturiana. Cada año, toneladas de lana local terminan en vertederos. Nosotros trabajamos con ganaderos, artesanas y agricultores para convertir ese problema en una oportunidad: productos naturales, bellos y útiles que cuidan la tierra y mantienen vivo el oficio.</p>
                         <div class="btn-group">
-                            <a class="btn" data-section="productos">Conoce nuestros productos <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            <!-- Botón ahora apunta a la tienda externa -->
+                            <a class="btn" href="https://store142212751.ecwid.com" target="_blank" rel="noopener noreferrer">Visita nuestra tienda <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                             <a href="https://instagram.com/re_signifq" target="_blank" class="btn btn-light" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Síguenos en Instagram</a>
                         </div>
                     </div>
@@ -799,62 +785,6 @@
             </section>
         </div>
 
-        <!-- Sección PRODUCTOS -->
-        <div id="productos" class="page-section">
-            <section>
-                <div class="container-inner">
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <span class="badge badge-pill">Tres líneas, una misma materia prima</span>
-                    </div>
-
-                    <!-- RE-STUDIO -->
-                    <div class="card">
-                        <img class="card-image" src="i/luminarias.jpeg" alt="Lámpara de lana de Re-Studio" loading="lazy">
-                        <div class="card-content">
-                            <div style="overflow: auto;">
-                                <img src="i/avatar_ovelha_pink.png" alt="Re_signifiq Studio" class="avatar-logo">
-                                <div class="product-description">
-                                    <p><em>Diseño y decoración.</em></p>
-                                    <p>Alfombras, lámparas, paneles acústicos y objetos textiles donde el diseño contemporáneo se encuentra con las técnicas tradicionales sumados a alma Brasileira en suelo Asturiano.</p>
-                                    <p><strong>Piezas únicas o series limitadas. Hechas a mano en Asturias.</strong></p>
-                                </div>
-                            </div>
-                            <div class="btn-group" style="margin-top: 1rem;">
-                                <a href="#" data-section="contacto" class="btn">Ver colección <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                                <a href="#" data-section="contacto" class="btn btn-light">Consultar disponibilidad <i class="fas fa-calendar-alt" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- OVEYA VERDE -->
-                    <div class="card">
-                        <img class="card-image" src="i/Manta_de_lana.jpeg" alt="Mantillo de lana Oveya Verde" loading="lazy">
-                        <div class="card-content">
-                            <div style="overflow: auto;">
-                                <img src="i/avatar_ovelha_brown.png" alt="Re_signifiq Oveya Verde" class="avatar-logo">
-                                <div class="product-description">
-                                    <p><em>Soluciones naturales para el campo y el jardín.</em></p>
-                                    <p><strong>Pellets de lana.</strong> Fertilizante de liberación lenta. Aportan nitrógeno, mejoran la estructura del suelo y retienen humedad.<br>
-                                    <strong>Mantilla de lana.</strong> Acolchado natural que sustituye al plástico. Protege del frío, regula humedad, ahuyenta babosas y se convierte en abono.<br>
-                                    <strong>Maseta de lana.</strong> Semillero biodegradable. Se planta directamente, protege la raíz y alimenta el suelo.</p>
-                                    <p><strong>100% natural. 100% biodegradable. 100% lana recuperada.</strong></p>
-                                </div>
-                            </div>
-                            <div class="btn-group" style="margin-top: 1rem;">
-                                <a href="#" data-section="contacto" class="btn">Saber más <i class="fas fa-leaf" aria-hidden="true"></i></a>
-                                <a href="#" data-section="contacto" class="btn btn-light">Avisarme cuando estén listos <i class="fas fa-bell" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Banner EM BREVE con imagen pulsante (sin bordes) -->
-                    <div class="blinking-banner">
-                        <img src="i/en_breve_novo.png" alt="Próximamente - Productos disponibles pronto">
-                    </div>
-                </div>
-            </section>
-        </div>
-
         <!-- Sección OBRADOR -->
         <div id="obrador" class="page-section">
             <section>
@@ -908,7 +838,8 @@
                 </div>
             </section>
         </div>
-        <!-- Sección CONTACTO – Web2Phone + Newsletter con envío AJAX -->
+
+        <!-- Sección CONTACTO -->
         <div id="contacto" class="page-section">
         <section>
             <div class="container-inner">
@@ -924,7 +855,6 @@
                     <div class="contact-form">
                         <h2>Formulario rápido</h2>
                         
-                        <!-- Web2Phone form (campos field, field_2, field_3) -->
                         <form class="w2p-form" 
                                 data-web2phone="form"
                                 data-public-key="j4Wg3ULIewaEHaEXbFu71lmY"
@@ -944,7 +874,6 @@
                     </div>
                 </div>
 
-                <!-- NEWSLETTER con envío AJAX (sin abrir nueva página) -->
                 <div class="newsletter">
                     <h3>NEWSLETTER</h3>
                     <p>¿Quieres seguir este proyecto de cerca? Te contaremos cuando tengamos los primeros productos listos, talleres y cosas bonitas.</p>
@@ -961,7 +890,7 @@
         </section>
         </div>
 
-        <!-- Sección BLOG -->
+        <!-- Sección BLOG (oculta) -->
         <div id="blog" class="page-section">
             <section>
                 <div class="container-inner">
@@ -993,7 +922,6 @@
 </div>
 
 <div class="scroll-top" aria-label="Volver arriba" role="button" tabindex="0"><i class="fas fa-arrow-up" aria-hidden="true"></i></div>
-<!-- Botón flotante de WhatsApp -->
 <a href="https://wa.me/+34984560189?text=Hola%2C%20me%20interesa%20Re-Signifq" 
    class="whatsapp-float" 
    target="_blank" 
@@ -1004,12 +932,10 @@
 
 <!-- Scripts -->
 <script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
-<!-- Newsletter Script -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2257749');
 
-    // Newsletter AJAX
     document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const email = document.getElementById('newsletterEmail').value.trim();
@@ -1037,7 +963,6 @@
         }
     });
 </script>
-<!-- NavScripts -->
 <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
@@ -1047,7 +972,6 @@
         menuToggle.classList.toggle('active');
     });
 
-    /* fechar menu ao clicar em link */
     document.querySelectorAll('.menu a').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
@@ -1055,7 +979,6 @@
         });
     });
 </script>
-<!-- Section Scripts -->
 <script>
     function showSection(sectionId) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
@@ -1128,7 +1051,6 @@
     animateNumbers();
     showSection('inicio');
 </script>
-<!-- Schema.org Markup -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -1154,7 +1076,6 @@
     ]
 }
 </script>
-<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
