@@ -205,7 +205,6 @@
             section {
                 padding: 2rem 1rem;
             }
-            
         }
         .container-inner {
             max-width: 1120px;
@@ -650,8 +649,7 @@
 <div class="container">
     <header class="header">
         <a href="#" data-section="inicio" class="logo-link" aria-label="Ir a la sección de inicio">
-            <div class="logo" role="img" aria-label="Logotipo de Re-Signifq" tabindex="0">
-            </div>
+            <div class="logo" role="img" aria-label="Logotipo de Re-Signifq" tabindex="0"></div>
         </a>
         
         <button class="menu-toggle" aria-label="Abrir menu">
@@ -663,7 +661,7 @@
         <nav class="menu" aria-label="Menú principal">
             <a href="#" data-section="inicio">INICIO</a>
             <a href="#nosotros" data-section="nosotros">NOSOTROS</a>
-            <!-- TIENDA ahora es un enlace externo a la tienda Ecwid -->
+            <!-- TIENDA abre a loja Ecwid numa nova aba -->
             <a href="https://store142212751.ecwid.com" target="_blank" rel="noopener noreferrer">TIENDA</a>
             <a href="#obrador" data-section="obrador">OBRADOR</a>
             <a href="#preguntas" data-section="preguntas">PREGUNTAS</a>
@@ -688,7 +686,6 @@
                         <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Transformamos la lana que se desecha en Asturias en productos sostenibles para tu hogar, tu huerta y tu comunidad.</strong></p>
                         <p>Un proyecto textil y social nacido en Fuentes Cabadas, concejo de Boal, para devolver el valor a la lana asturiana. Cada año, toneladas de lana local terminan en vertederos. Nosotros trabajamos con ganaderos, artesanas y agricultores para convertir ese problema en una oportunidad: productos naturales, bellos y útiles que cuidan la tierra y mantienen vivo el oficio.</p>
                         <div class="btn-group">
-                            <!-- Botón ahora apunta a la tienda externa -->
                             <a class="btn" href="https://store142212751.ecwid.com" target="_blank" rel="noopener noreferrer">Visita nuestra tienda <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                             <a href="https://instagram.com/re_signifq" target="_blank" class="btn btn-light" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Síguenos en Instagram</a>
                         </div>
@@ -711,7 +708,7 @@
                         <p><strong>Lo que para unos es residuo, para nosotros es recurso.</strong></p>
                         <p>La lana es mucho más que un material. Es aislante térmico, regulador de humedad, fertilizante natural, materia prima para la creación artesanal. Es un recurso perfecto para un mundo que necesita repensar su relación con los materiales.</p>
                         <div style="margin: 1.5rem 0; text-align: center;">
-                            <img src="i/Banner_Selos.png" alt="Banner sellos" style="max-width: 100%; border-radius: var(--radius-md);">
+                            <img src="i/Banner_Selos.png" alt="Banner sellos" loading="lazy" style="max-width: 100%; border-radius: var(--radius-md);">
                         </div>
                     </div>
                 </div>
@@ -792,7 +789,7 @@
                     <div class="nosotros-grid">
                         <div class="nosotros-block">
                             <div class="image">
-                                <img src="i/obrador.jpg" alt="Taller obrador" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);" loading="lazy">
+                                <img src="i/obrador.jpg" alt="Taller obrador" loading="lazy" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
                             </div>
                             <div class="text">
                                 <h2 style="color: var(--color-marrom);">EL OBRADOR</h2>
@@ -906,7 +903,7 @@
 
     <footer>
         <div class="footer-logo">
-            <img src="i/logo_Banner_bege.png" alt="Re-Signifq">
+            <img src="i/logo_Banner_bege.png" alt="Re-Signifq" loading="lazy">
         </div>
         <p><em>Lana asturiana, de residuo a recurso.</em></p>
         <div class="footer-social">
@@ -916,7 +913,7 @@
         <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:resignifq@gmail.com">resignifq@gmail.com</a> | <a href="https://instagram.com/re_signifq" target="_blank" rel="noopener noreferrer" aria-label="Instagram"> <i class="fab fa-instagram" aria-hidden="true"></i> @re_signifq</a></p>
         <p>© 2025 Re-Signifq. Hecho con calma en el occidente de Asturias.</p>
         <div class="footer-logos">
-            <img src="i/Patrocinadores.png" alt="Colaboradores">
+            <img src="i/Patrocinadores.png" alt="Colaboradores" loading="lazy">
         </div>
     </footer>
 </div>
@@ -930,40 +927,74 @@
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- Scripts -->
-<script src="https://web2phone.co.uk/static/formsapp/js/embed.js?v=5"></script>
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2257749');
+<!-- ================================================================
+     SCRIPTS OTIMIZADOS
+     - O Web2Phone é carregado de forma preguiçosa (lazy), apenas
+       quando a página estiver totalmente carregada e o navegador
+       estiver ocioso. Isso impede que ele bloqueie a renderização.
+     - O MailerLite é carregado de forma assíncrona, sem bloquear.
+     ================================================================ -->
 
-    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const email = document.getElementById('newsletterEmail').value.trim();
-        const messageDiv = document.getElementById('newsletterMessage');
-        if (!email) return;
-        
-        messageDiv.innerHTML = '<span style="color: #b27f2e;">Enviando...</span>';
-        
-        try {
-            const response = await fetch('https://assets.mailerlite.com/jsonp/2257749/forms/184308126904747528/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({ 'fields[email]': email })
-            });
-            const data = await response.json();
-            if (data.success || response.ok) {
-                messageDiv.innerHTML = '<span style="color: green;">✅ ¡Gracias! Te has suscrito correctamente.</span>';
-                document.getElementById('newsletterForm').reset();
-                setTimeout(() => messageDiv.innerHTML = '', 5000);
-            } else {
-                messageDiv.innerHTML = '<span style="color: red;">❌ Error al suscribir. Inténtalo de nuevo.</span>';
-            }
-        } catch (error) {
-            messageDiv.innerHTML = '<span style="color: red;">❌ Error de conexión. Inténtalo más tarde.</span>';
-        }
-    });
-</script>
+<!-- Script de newsletter (MailerLite) - carregamento assíncrono -->
 <script>
+    // Carregamento do MailerLite universal (async, sem bloquear)
+    (function(w,d,e,u,f,l,n){
+        w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
+        l=d.createElement(e);
+        l.async=1;
+        l.src=u;
+        n=d.getElementsByTagName(e)[0];
+        n.parentNode.insertBefore(l,n);
+    })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2257749');
+</script>
+
+<!-- Script de Web2Phone - carregamento PREGUIÇOSO (lazy) -->
+<script>
+    (function() {
+        'use strict';
+        var w2pLoaded = false;
+
+        function loadWeb2Phone() {
+            if (w2pLoaded) return;
+            w2pLoaded = true;
+            var script = document.createElement('script');
+            script.src = 'https://web2phone.co.uk/static/formsapp/js/embed.js?v=5';
+            script.async = true;
+            script.onload = function() {
+                console.log('[Re-Signifq] Web2Phone cargado correctamente.');
+            };
+            script.onerror = function() {
+                console.warn('[Re-Signifq] No se pudo cargar Web2Phone.');
+                w2pLoaded = false;
+            };
+            document.body.appendChild(script);
+        }
+
+        // Estratégia: carregar o Web2Phone apenas após a página estar
+        // totalmente carregada, aproveitando o tempo ocioso do navegador.
+        if (document.readyState === 'complete') {
+            // Se já está carregado, agenda para o tempo ocioso
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadWeb2Phone, { timeout: 3000 });
+            } else {
+                setTimeout(loadWeb2Phone, 1500);
+            }
+        } else {
+            window.addEventListener('load', function() {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(loadWeb2Phone, { timeout: 3000 });
+                } else {
+                    setTimeout(loadWeb2Phone, 1500);
+                }
+            });
+        }
+    })();
+</script>
+
+<!-- Script de interação geral (menu, seções, FAQ, newsletter) -->
+<script>
+    // Menu hamburger
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
 
@@ -978,8 +1009,8 @@
             menuToggle.classList.remove('active');
         });
     });
-</script>
-<script>
+
+    // Navegação entre seções
     function showSection(sectionId) {
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
         const activeSection = document.getElementById(sectionId);
@@ -999,6 +1030,7 @@
         });
     });
 
+    // FAQ acordeão
     document.querySelectorAll('.faq-question').forEach(q => {
         q.addEventListener('click', () => {
             const faqItem = q.closest('.faq-item');
@@ -1006,6 +1038,7 @@
         });
     });
 
+    // Botão voltar ao topo
     const scrollTopBtn = document.querySelector('.scroll-top');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) scrollTopBtn.classList.add('visible');
@@ -1013,6 +1046,7 @@
     });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+    // Animação dos números
     function animateNumbers() {
         const statsContainer = document.getElementById('statsContainer');
         const statNumbers = document.querySelectorAll('.stat-number[data-target]');
@@ -1049,8 +1083,40 @@
     }
 
     animateNumbers();
+
+    // Newsletter (MailerLite) - envio via AJAX
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value.trim();
+        const messageDiv = document.getElementById('newsletterMessage');
+        if (!email) return;
+        
+        messageDiv.innerHTML = '<span style="color: #b27f2e;">Enviando...</span>';
+        
+        try {
+            const response = await fetch('https://assets.mailerlite.com/jsonp/2257749/forms/184308126904747528/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ 'fields[email]': email })
+            });
+            const data = await response.json();
+            if (data.success || response.ok) {
+                messageDiv.innerHTML = '<span style="color: green;">✅ ¡Gracias! Te has suscrito correctamente.</span>';
+                document.getElementById('newsletterForm').reset();
+                setTimeout(() => messageDiv.innerHTML = '', 5000);
+            } else {
+                messageDiv.innerHTML = '<span style="color: red;">❌ Error al suscribir. Inténtalo de nuevo.</span>';
+            }
+        } catch (error) {
+            messageDiv.innerHTML = '<span style="color: red;">❌ Error de conexión. Inténtalo más tarde.</span>';
+        }
+    });
+
+    // Mostrar seção inicial
     showSection('inicio');
 </script>
+
+<!-- Schema.org Markup -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
